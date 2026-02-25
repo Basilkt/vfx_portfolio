@@ -24,12 +24,12 @@ body {
 .blob-2 { bottom: -200px; right: -200px; background: radial-gradient(#db2777, transparent 70%); }
 @keyframes float { 0% { transform: translate(0, 0); } 100% { transform: translate(50px, 50px); } }
 
-/* --- 3. NEW NAVBAR (Flexbox Layout) --- */
+/* --- 3. CENTERED NAVBAR --- */
 .top-nav {
     padding: 30px 50px; 
     position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
     background: transparent; transition: all 0.4s ease-in-out; box-sizing: border-box;
-    display: flex; justify-content: space-between; align-items: center; /* Spaces items out */
+    display: flex; justify-content: center; align-items: center; /* This centers everything */
 }
 
 /* Sticky State */
@@ -39,16 +39,21 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* Nav Left Side (Button + Logo) */
-.nav-left {
-    display: flex; align-items: center; gap: 25px;
+/* Nav Links Container */
+.nav-links { display: flex; gap: 35px; align-items: center; }
+
+/* Standard Nav Links */
+.nav-links a:not(.nav-btn) {
+    color: #e2e8f0; text-decoration: none; font-weight: 500; font-size: 1.05rem;
+    transition: color 0.3s;
 }
+.nav-links a:not(.nav-btn):hover { color: #8b5cf6; } 
 
 /* The Purple Showreel Button */
 .nav-btn {
     padding: 8px 22px;
-    border: 2px solid #8b5cf6; /* Purple border */
-    color: #a78bfa; /* Light purple text */
+    border: 2px solid #8b5cf6;
+    color: #a78bfa; 
     border-radius: 30px; text-decoration: none; font-weight: 500;
     transition: all 0.3s;
 }
@@ -56,17 +61,6 @@ body {
     background: rgba(139, 92, 246, 0.1);
     transform: scale(1.05);
 }
-
-/* Logo */
-.logo { font-size: 1.4rem; font-weight: 700; color: white; display: flex; align-items: center; gap: 8px; }
-
-/* Nav Links */
-.nav-links { display: flex; gap: 35px; }
-.nav-links a {
-    color: #e2e8f0; text-decoration: none; font-weight: 500; font-size: 1.05rem;
-    transition: color 0.3s;
-}
-.nav-links a:hover { color: #8b5cf6; } /* Turns purple on hover */
 
 /* --- 4. Main Hero Section --- */
 .hero-container {
