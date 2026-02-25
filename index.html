@@ -28,11 +28,8 @@
     <div class="bg-blob blob-2"></div>
 
     <nav class="top-nav fade-in" id="navbar">
-        <div class="nav-left">
-            <a href="#work" class="nav-btn">Showreel</a>
-            <div class="logo"><i class="fa-solid fa-circle-notch"></i> Portfolio</div>
-        </div>
         <div class="nav-links">
+            <a href="#work" class="nav-btn">Showreel</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#experience">Experience</a>
@@ -138,6 +135,12 @@
             });
         });
         document.querySelectorAll('.fade-in').forEach(section => observer.observe(section));
+
+        // --- BUG FIX: FORCE INITIAL SECTIONS TO BE VISIBLE ---
+        setTimeout(() => {
+            document.getElementById('navbar').classList.add('visible');
+            document.getElementById('about').classList.add('visible');
+        }, 2500); 
 
         // --- TYPING EFFECT SCRIPT ---
         const typedTextSpan = document.querySelector(".typed-text");
