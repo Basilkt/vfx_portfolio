@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammed Basil KT | VFX Portfolio</title>
+    <title>Muhammed Basil KT | Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
+    <div class="scroll-progress-bar" id="scrollBar"></div>
 
     <div class="splash-screen">
         <div class="splash-content">
@@ -25,7 +27,7 @@
     <div class="bg-blob blob-1"></div>
     <div class="bg-blob blob-2"></div>
 
-    <nav class="top-nav fade-in">
+    <nav class="top-nav fade-in" id="navbar">
         <div class="logo">Basil<span class="dot">.</span></div>
     </nav>
 
@@ -117,7 +119,7 @@
     </section>
 
     <script>
-        // Fade-in Animation Observer
+        // --- FADE IN OBSERVER ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -131,11 +133,10 @@
         const typedTextSpan = document.querySelector(".typed-text");
         const cursorSpan = document.querySelector(".cursor");
 
-        // The words you want to cycle through
-        const textArray = ["VFX Artist", "Compositor", "3D Artist", "Visual Artist"];
+        const textArray = ["Compositor", "3D Artist", "Visual Artist"];
         const typingDelay = 100;
         const erasingDelay = 50;
-        const newTextDelay = 2000; // Delay between current and next text
+        const newTextDelay = 2000;
         let textArrayIndex = 0;
         let charIndex = 0;
 
@@ -163,15 +164,30 @@
                 cursorSpan.classList.remove("typing");
                 textArrayIndex++;
                 if(textArrayIndex >= textArray.length) textArrayIndex = 0;
-                // Add a small delay after erasing before typing the next word
                 setTimeout(type, typingDelay + 500);
             }
         }
 
-        document.addEventListener("DOMContentLoaded", function() { // On DOM Load initiate the effect
-            // Wait slightly longer than the splash screen to start typing
+        document.addEventListener("DOMContentLoaded", function() { 
             setTimeout(type, 3500); 
         });
+
+        // --- NEW: SCROLL EVENTS (Navbar & Progress Bar) ---
+        window.onscroll = function() {
+            // 1. Progress Bar Logic
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scrollBar").style.width = scrolled + "%";
+
+            // 2. Sticky Navbar Logic
+            const navbar = document.getElementById("navbar");
+            if (winScroll > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        };
     </script>
 </body>
 </html>
