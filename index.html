@@ -68,4 +68,134 @@
             </div>
 
             <div class="social-mini-row">
-                <a href="https://www.linkedin.com/in/muhammed
+                <a href="https://www.linkedin.com/in/muhammed-basil-kt-39840426a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/bazisnap/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="image-wrapper">
+                
+                <div class="image-frame">
+                    <img src="profile.jpg" alt="Profile" class="profile-pic">
+                </div>
+
+                <div class="tech-bubble bubble-1">Nk</div>
+                <div class="tech-bubble bubble-2">Ma</div>
+                <div class="tech-bubble bubble-3">Hou</div>
+                <div class="tech-bubble bubble-4">Ps</div>
+                <div class="tech-bubble bubble-5">Ae</div>
+            
+            </div>
+        </div>
+
+    </section>
+
+    <section id="work" class="video-section fade-in">
+        <h2 class="section-title">Showreel 2024</h2>
+        <div class="video-wrapper">
+            <div class="video-container">
+                <iframe src="https://player.vimeo.com/video/899002332?h=d5d5d5d5d5&color=6886e0&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section fade-in" id="projects">
+        <h2 class="section-title">Selected Shots</h2>
+        <div class="gallery-grid">
+            <div class="project-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1535016120720-40c6874c3b1c');"></div>
+                <div class="card-info">
+                    <h3>Chrome Ball Integration</h3>
+                    <p>Nuke | Maya</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe');"></div>
+                <div class="card-info">
+                    <h3>Green Screen Keying</h3>
+                    <p>Nuke | Keylight</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb');"></div>
+                <div class="card-info">
+                    <h3>Matte Painting</h3>
+                    <p>Photoshop | Nuke</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // --- FADE IN OBSERVER ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+        document.querySelectorAll('.fade-in').forEach(section => observer.observe(section));
+
+        // --- TYPING EFFECT SCRIPT ---
+        const typedTextSpan = document.querySelector(".typed-text");
+        const cursorSpan = document.querySelector(".cursor");
+
+        const textArray = ["Compositor", "3D Artist", "Visual Artist"];
+        const typingDelay = 100;
+        const erasingDelay = 50;
+        const newTextDelay = 2000;
+        let textArrayIndex = 0;
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < textArray[textArrayIndex].length) {
+                if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } 
+            else {
+                cursorSpan.classList.remove("typing");
+                setTimeout(erase, newTextDelay);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } 
+            else {
+                cursorSpan.classList.remove("typing");
+                textArrayIndex++;
+                if(textArrayIndex >= textArray.length) textArrayIndex = 0;
+                setTimeout(type, typingDelay + 500);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() { 
+            setTimeout(type, 3500); 
+        });
+
+        // --- SCROLL EVENTS ---
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scrollBar").style.width = scrolled + "%";
+
+            const navbar = document.getElementById("navbar");
+            if (winScroll > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        };
+    </script>
+</body>
+</html>
