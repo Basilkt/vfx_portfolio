@@ -24,12 +24,12 @@ body {
 .blob-2 { bottom: -200px; right: -200px; background: radial-gradient(#db2777, transparent 70%); }
 @keyframes float { 0% { transform: translate(0, 0); } 100% { transform: translate(50px, 50px); } }
 
-/* --- 3. CENTERED NAVBAR --- */
+/* --- 3. PERFECTLY CENTERED NAVBAR --- */
 .top-nav {
     padding: 30px 50px; 
     position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
     background: transparent; transition: all 0.4s ease-in-out; box-sizing: border-box;
-    display: flex; justify-content: center; align-items: center; /* This centers everything */
+    display: flex; justify-content: space-between; align-items: center; 
 }
 
 /* Sticky State */
@@ -39,15 +39,17 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* Nav Links Container */
-.nav-links { display: flex; gap: 35px; align-items: center; }
+/* Navbar Layout Zones */
+.nav-left, .nav-right { flex: 1; display: flex; }
+.nav-right { justify-content: flex-end; }
+.nav-links { flex: 2; display: flex; gap: 35px; justify-content: center; align-items: center; }
 
 /* Standard Nav Links */
-.nav-links a:not(.nav-btn) {
+.nav-links a {
     color: #e2e8f0; text-decoration: none; font-weight: 500; font-size: 1.05rem;
     transition: color 0.3s;
 }
-.nav-links a:not(.nav-btn):hover { color: #8b5cf6; } 
+.nav-links a:hover { color: #8b5cf6; } 
 
 /* The Purple Showreel Button */
 .nav-btn {
@@ -182,7 +184,8 @@ body {
 /* Mobile Responsive */
 @media (max-width: 900px) {
     .top-nav { padding: 20px; }
-    .nav-links { display: none; /* Hide links on mobile for cleaner look */ }
+    .nav-left, .nav-links { display: none; } /* Hide links on mobile to keep it clean */
+    .nav-right { justify-content: center; } /* Centers the showreel button on mobile */
     .hero-container { flex-direction: column-reverse; text-align: center; padding-top: 120px; gap: 40px; }
     .hero-text { text-align: center; }
     .action-buttons { justify-content: center; }
