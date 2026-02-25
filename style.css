@@ -6,6 +6,18 @@ body {
     overflow-x: hidden;
 }
 
+/* --- THE NEW SCROLL PROGRESS BAR --- */
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%; /* Starts at 0, JavaScript changes this */
+    height: 4px; /* Thickness of the bar */
+    background: linear-gradient(to right, #60a5fa, #a78bfa); /* Awesome gradient */
+    z-index: 99999; /* Always on top of EVERYTHING */
+    transition: width 0.1s;
+}
+
 /* --- 2. Background Atmosphere --- */
 .bg-blob {
     position: fixed; width: 600px; height: 600px;
@@ -17,9 +29,22 @@ body {
 .blob-2 { bottom: -200px; right: -200px; background: radial-gradient(#db2777, transparent 70%); }
 @keyframes float { 0% { transform: translate(0, 0); } 100% { transform: translate(50px, 50px); } }
 
-/* --- 3. Navbar --- */
+/* --- 3. Navbar (Now Smart Sticky) --- */
 .top-nav {
-    padding: 30px 50px; position: absolute; top: 0; left: 0; width: 100%; z-index: 10;
+    padding: 30px 50px; 
+    position: fixed; 
+    top: 0; left: 0; width: 100%; z-index: 100;
+    background: transparent; /* Starts invisible at top */
+    transition: all 0.4s ease-in-out; /* Smooth transition */
+    box-sizing: border-box; 
+}
+/* When scrolling down, JavaScript adds this class */
+.top-nav.scrolled {
+    padding: 15px 50px; /* Shrinks slightly */
+    background: rgba(5, 5, 5, 0.9); /* Gets a dark background */
+    backdrop-filter: blur(10px); /* Blurs the content behind it */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Soft border */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Drops a shadow */
 }
 .logo { font-size: 1.5rem; font-weight: 700; color: white; }
 .dot { color: #60a5fa; }
@@ -164,4 +189,35 @@ body {
 /* Splash Bubble Positions */
 .sb-1 { top: 20%; left: 20%; color: #facc15; border-color: #facc15; animation-delay: 0s, 0s, 2.4s; }
 .sb-2 { top: 10%; right: 30%; color: #2dd4bf; border-color: #2dd4bf; animation-delay: 0.2s, 0.2s, 2.4s; }
-.sb-3 { bottom: 20%; right: 20%; color: #fb923c
+.sb-3 { bottom: 20%; right: 20%; color: #fb923c; border-color: #fb923c; animation-delay: 0.4s, 0.4s, 2.4s; }
+.sb-4 { bottom: 10%; left: 30%; color: #3b82f6; border-color: #3b82f6; animation-delay: 0.6s, 0.6s, 2.4s; }
+.sb-5 { top: 50%; right: 10%; color: #a855f7; border-color: #a855f7; animation-delay: 0.8s, 0.8s, 2.4s; }
+
+/* --- KEYFRAMES --- */
+@keyframes bgFadeOut { to { opacity: 0; visibility: hidden; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes orbitPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+
+/* The "Transport" Animations */
+@keyframes flyLeft {
+    to { opacity: 0; transform: translateX(-40vw) scale(0.8); }
+}
+@keyframes flyRight {
+    to { opacity: 0; transform: translateX(40vw) scale(0.5); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .hero-container { flex-direction: column-reverse; text-align: center; padding-top: 100px; gap: 40px; }
+    .hero-text { text-align: center; }
+    .action-buttons { justify-content: center; }
+    .social-mini-row { justify-content: center; }
+    .image-wrapper { width: 280px; height: 280px; margin-bottom: 20px; }
+    .image-frame { width: 240px; height: 240px; }
+    .greeting { font-size: 3.5rem; }
+    /* Simplify Splash on mobile */
+    .splash-bubble { display: none; }
+    @keyframes flyLeft { to { opacity: 0; transform: scale(0.8); } }
+}
+.fade-in { opacity: 0; transform: translateY(20px); transition: 1s; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
