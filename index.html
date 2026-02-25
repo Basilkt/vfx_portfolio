@@ -36,7 +36,10 @@
             <h1 class="greeting">Hi! I'm <br> <span class="name-highlight">Muhammed Basil</span></h1>
             
             <div class="terminal-box">
-                <p class="terminal-line"><span class="prompt"></span> VFX Artist & Compositor</p>
+                <p class="terminal-line">
+                    <span class="prompt">≥</span> 
+                    <span class="typed-text"></span><span class="cursor">&nbsp;</span>
+                </p>
             </div>
 
             <div class="action-buttons">
@@ -115,6 +118,7 @@
     </section>
 
     <script>
+        // Fade-in Animation Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -123,6 +127,52 @@
             });
         });
         document.querySelectorAll('.fade-in').forEach(section => observer.observe(section));
+
+        // --- TYPING EFFECT SCRIPT ---
+        const typedTextSpan = document.querySelector(".typed-text");
+        const cursorSpan = document.querySelector(".cursor");
+
+        // The words you want to cycle through
+        const textArray = ["VFX Artist", "Compositor", "3D Artist", "Visual Artist"];
+        const typingDelay = 100;
+        const erasingDelay = 50;
+        const newTextDelay = 2000; // Delay between current and next text
+        let textArrayIndex = 0;
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < textArray[textArrayIndex].length) {
+                if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } 
+            else {
+                cursorSpan.classList.remove("typing");
+                setTimeout(erase, newTextDelay);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } 
+            else {
+                cursorSpan.classList.remove("typing");
+                textArrayIndex++;
+                if(textArrayIndex >= textArray.length) textArrayIndex = 0;
+                // Add a small delay after erasing before typing the next word
+                setTimeout(type, typingDelay + 500);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() { // On DOM Load initiate the effect
+            // Wait slightly longer than the splash screen to start typing
+            setTimeout(type, 3500); 
+        });
     </script>
 </body>
 </html>
