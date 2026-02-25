@@ -28,16 +28,16 @@
     <div class="bg-blob blob-2"></div>
 
     <nav class="top-nav fade-in" id="navbar">
-        <div class="nav-left">
-            <a href="#work" class="nav-btn">Showreel</a>
-            <div class="logo"><i class="fa-solid fa-circle-notch"></i> Portfolio</div>
-        </div>
-        <div class="nav-links">
+        <div class="nav-left"></div> <div class="nav-links">
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#education">Education</a>
+        </div>
+
+        <div class="nav-right">
+            <a href="#work" class="nav-btn">Showreel</a>
         </div>
     </nav>
 
@@ -140,11 +140,10 @@
         document.querySelectorAll('.fade-in').forEach(section => observer.observe(section));
 
         // --- BUG FIX: FORCE INITIAL SECTIONS TO BE VISIBLE ---
-        // This ensures the page isn't black when it first loads!
         setTimeout(() => {
             document.getElementById('navbar').classList.add('visible');
             document.getElementById('about').classList.add('visible');
-        }, 2500); // Triggers exactly when the splash screen ends
+        }, 2500); 
 
         // --- TYPING EFFECT SCRIPT ---
         const typedTextSpan = document.querySelector(".typed-text");
