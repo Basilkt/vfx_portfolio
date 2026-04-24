@@ -42,22 +42,21 @@
         <div class="nav-left"></div>
         
         <div class="nav-links">
+            <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
-            <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#education">Education</a>
         </div>
 
         <div class="nav-right">
-            <a href="#work" class="nav-btn">Showreel</a>
+            <a href="#projects" class="nav-btn">View Work</a>
         </div>
     </nav>
 
-    <section class="hero-container fade-in" id="about">
+    <section class="hero-container fade-in" id="home">
         
         <div class="hero-text">
-            
             <h1 class="greeting">Hi! I'm <br> <span class="name-highlight">Muhammed Basil</span></h1>
             
             <div class="terminal-box">
@@ -67,8 +66,8 @@
             </div>
 
             <div class="action-buttons">
-                <a href="#work" class="main-button primary">
-                    <i class="fas fa-play"></i> Watch Reel
+                <a href="#projects" class="main-button primary">
+                    <i class="fas fa-play"></i> My Work
                 </a>
                 
                 <a href="mailto:bhasimuhammed@gmail.com" class="main-button secondary">
@@ -89,7 +88,6 @@
 
         <div class="hero-image">
             <div class="image-wrapper">
-                
                 <div class="image-frame">
                     <img src="profile.jpg" alt="Profile" class="profile-pic">
                 </div>
@@ -99,18 +97,19 @@
                 <div class="tech-bubble bubble-3">Hou</div>
                 <div class="tech-bubble bubble-4">Ps</div>
                 <div class="tech-bubble bubble-5">Ae</div>
-            
             </div>
         </div>
-
     </section>
 
-    <section id="work" class="video-section fade-in">
-        <h2 class="section-title">Showreel 2024</h2>
-        <div class="video-wrapper">
-            <div class="video-container">
-                <iframe src="https://player.vimeo.com/video/899002332?h=d5d5d5d5d5&color=6886e0&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-            </div>
+    <section class="about-section fade-in" id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-wrapper">
+            <p class="about-text">
+                Hello! I am a dedicated visual effects artist specializing as a Roto and Paint Artist, currently bringing cinematic worlds to life at Industrial Light & Magic (ILM) in Mumbai.
+            </p>
+            <p class="about-text">
+                I thrive on the intricate details of digital compositing, ensuring seamless integration and pixel-perfect results in every shot. Beyond my daily VFX work, I am passionate about exploring 3D art, optimizing high-performance hardware, and continuously expanding my technical skillset to push the boundaries of visual storytelling.
+            </p>
         </div>
     </section>
 
@@ -155,7 +154,7 @@
         // --- BUG FIX: FORCE INITIAL SECTIONS TO BE VISIBLE ---
         setTimeout(() => {
             document.getElementById('navbar').classList.add('visible');
-            document.getElementById('about').classList.add('visible');
+            document.getElementById('home').classList.add('visible');
         }, 2500); 
 
         // --- TYPING EFFECT SCRIPT ---
