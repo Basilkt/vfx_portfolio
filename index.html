@@ -45,12 +45,11 @@
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
             <a href="#education">Education</a>
         </div>
 
         <div class="nav-right">
-            <a href="#projects" class="nav-btn">View Work</a>
+            <a href="#skills" class="nav-btn">View Work</a>
         </div>
     </nav>
 
@@ -66,8 +65,8 @@
             </div>
 
             <div class="action-buttons">
-                <a href="#projects" class="main-button primary">
-                    <i class="fas fa-play"></i> My Work
+                <a href="#skills" class="main-button primary">
+                    <i class="fas fa-play"></i> My Skills
                 </a>
                 
                 <a href="mailto:bhasimuhammed@gmail.com" class="main-button secondary">
@@ -115,28 +114,45 @@
         </div>
     </section>
 
-    <section class="gallery-section" id="projects">
-        <h2 class="section-title cinematic-scroll">Selected Shots</h2>
-        <div class="gallery-grid">
-            <div class="project-card cinematic-scroll delay-1">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1535016120720-40c6874c3b1c');"></div>
-                <div class="card-info">
-                    <h3>Chrome Ball Integration</h3>
-                    <p>Nuke | Maya</p>
+    <section class="skills-3d-section cinematic-scroll" id="skills">
+        <h2 class="section-title">Skills & Software</h2>
+        <div class="carousel-container">
+            <div class="carousel-wrapper">
+                <div class="carousel-card" style="--i: 1;">
+                    <div class="card-content">
+                        <h3>Nuke</h3>
+                        <p>Compositing & CopyCat</p>
+                    </div>
                 </div>
-            </div>
-            <div class="project-card cinematic-scroll delay-2">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe');"></div>
-                <div class="card-info">
-                    <h3>Green Screen Keying</h3>
-                    <p>Nuke | Keylight</p>
+                <div class="carousel-card" style="--i: 2;">
+                    <div class="card-content">
+                        <h3>Silhouette</h3>
+                        <p>Advanced Roto</p>
+                    </div>
                 </div>
-            </div>
-            <div class="project-card cinematic-scroll delay-3">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb');"></div>
-                <div class="card-info">
-                    <h3>Matte Painting</h3>
-                    <p>Photoshop | Nuke</p>
+                <div class="carousel-card" style="--i: 3;">
+                    <div class="card-content">
+                        <h3>Mocha Pro</h3>
+                        <p>Planar Tracking</p>
+                    </div>
+                </div>
+                <div class="carousel-card" style="--i: 4;">
+                    <div class="card-content">
+                        <h3>Photoshop</h3>
+                        <p>Matte Painting</p>
+                    </div>
+                </div>
+                <div class="carousel-card" style="--i: 5;">
+                    <div class="card-content">
+                        <h3>Maya</h3>
+                        <p>3D Integration</p>
+                    </div>
+                </div>
+                <div class="carousel-card" style="--i: 6;">
+                    <div class="card-content">
+                        <h3>Python</h3>
+                        <p>Pipeline Tools</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -144,12 +160,10 @@
 
     <script>
         // --- CINEMATIC SCROLL OBSERVER ---
-        // This triggers when 15% of the element is visible on screen
         const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Stop observing once it has revealed so it doesn't replay backwards
                     scrollObserver.unobserve(entry.target);
                 }
             });
