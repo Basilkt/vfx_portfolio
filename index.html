@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <nav class="top-nav animate-on-load" id="navbar">
+    <nav class="top-nav reveal-1" id="navbar">
         <div class="nav-left"></div>
         
         <div class="nav-links">
@@ -54,7 +54,7 @@
         </div>
     </nav>
 
-    <section class="hero-container animate-on-load" id="home">
+    <section class="hero-container reveal-2" id="home">
         
         <div class="hero-text">
             <h1 class="greeting">Hi! I'm <br> <span class="name-highlight">Muhammed Basil</span></h1>
@@ -101,8 +101,8 @@
         </div>
     </section>
 
-    <section class="about-section fade-in" id="about">
-        <div class="about-wrapper">
+    <section class="about-section" id="about">
+        <div class="about-wrapper cinematic-scroll">
             <h2 class="animated-headline">ABOUT ME</h2> 
             <div class="about-details">
                 <p class="about-text">
@@ -115,24 +115,24 @@
         </div>
     </section>
 
-    <section class="gallery-section fade-in" id="projects">
-        <h2 class="section-title">Selected Shots</h2>
+    <section class="gallery-section" id="projects">
+        <h2 class="section-title cinematic-scroll">Selected Shots</h2>
         <div class="gallery-grid">
-            <div class="project-card">
+            <div class="project-card cinematic-scroll delay-1">
                 <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1535016120720-40c6874c3b1c');"></div>
                 <div class="card-info">
                     <h3>Chrome Ball Integration</h3>
                     <p>Nuke | Maya</p>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card cinematic-scroll delay-2">
                 <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe');"></div>
                 <div class="card-info">
                     <h3>Green Screen Keying</h3>
                     <p>Nuke | Keylight</p>
                 </div>
             </div>
-            <div class="project-card">
+            <div class="project-card cinematic-scroll delay-3">
                 <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb');"></div>
                 <div class="card-info">
                     <h3>Matte Painting</h3>
@@ -143,15 +143,19 @@
     </section>
 
     <script>
-        // --- FADE IN OBSERVER (Only triggers on scroll now) ---
-        const observer = new IntersectionObserver((entries) => {
+        // --- CINEMATIC SCROLL OBSERVER ---
+        // This triggers when 15% of the element is visible on screen
+        const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    // Stop observing once it has revealed so it doesn't replay backwards
+                    scrollObserver.unobserve(entry.target);
                 }
             });
-        });
-        document.querySelectorAll('.fade-in').forEach(section => observer.observe(section));
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.cinematic-scroll').forEach(el => scrollObserver.observe(el));
 
         // --- TYPING EFFECT SCRIPT ---
         const typedTextSpan = document.querySelector(".typed-text");
@@ -165,6 +169,7 @@
         let charIndex = 0;
 
         function type() {
+            if (!typedTextSpan || !cursorSpan) return; 
             if (charIndex < textArray[textArrayIndex].length) {
                 if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
                 typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
@@ -178,6 +183,7 @@
         }
 
         function erase() {
+            if (!typedTextSpan || !cursorSpan) return; 
             if (charIndex > 0) {
                 if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
                 typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
@@ -193,7 +199,9 @@
         }
 
         document.addEventListener("DOMContentLoaded", function() { 
-            setTimeout(type, 3500); 
+            if (document.querySelector(".typed-text")) {
+                setTimeout(type, 3500); 
+            }
         });
 
         // --- SCROLL EVENTS ---
@@ -201,13 +209,16 @@
             let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             let scrolled = (winScroll / height) * 100;
-            document.getElementById("scrollBar").style.width = scrolled + "%";
+            const scrollBar = document.getElementById("scrollBar");
+            if(scrollBar) scrollBar.style.width = scrolled + "%";
 
             const navbar = document.getElementById("navbar");
-            if (winScroll > 50) {
-                navbar.classList.add("scrolled");
-            } else {
-                navbar.classList.remove("scrolled");
+            if (navbar) {
+                if (winScroll > 50) {
+                    navbar.classList.add("scrolled");
+                } else {
+                    navbar.classList.remove("scrolled");
+                }
             }
         };
     </script>
