@@ -125,4 +125,484 @@
 
         .cursor { display: inline-block; width: 3px; background-color: #4ade80; margin-left: 2px; animation: blink 1s infinite; }
         .cursor.typing { animation: none; }
-        @keyframes blink { 0%, 49%,
+        @keyframes blink { 0%, 49%, 100% { background-color: #4ade80; } 50%, 99% { background-color: transparent; } }
+
+        .action-buttons { display: flex; gap: 15px; margin-bottom: 40px; align-items: center; }
+        .main-button { padding: 14px 30px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+        .primary { background: white; color: black; }
+        .secondary { background: rgba(255,255,255,0.05); color: white; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .main-button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+
+        .social-mini-row { display: flex; gap: 20px; font-size: 1.5rem; }
+        .social-mini-row a { color: #64748b; transition: 0.3s; }
+        .social-mini-row a:hover { color: #60a5fa; transform: scale(1.1); }
+
+        .hero-image { flex: 1; display: flex; justify-content: center; align-items: center; position: relative; z-index: 5; }
+        .image-wrapper { position: relative; width: 400px; height: 400px; }
+        .image-frame {
+            width: 350px; height: 350px; border-radius: 50%; overflow: hidden;
+            border: 3px solid rgba(255,255,255,0.1); box-shadow: 0 0 50px rgba(96, 165, 250, 0.2);
+            margin: 25px; position: relative; z-index: 1;
+        }
+        .profile-pic { width: 100%; height: 100%; object-fit: cover; }
+
+        .tech-bubble {
+            position: absolute; width: 55px; height: 55px;
+            background: rgba(20, 20, 25, 0.9); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 0.85rem; backdrop-filter: blur(10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4); z-index: 2; animation: floatIcon 6s infinite ease-in-out;
+        }
+
+        .bubble-1 { top: -10px; left: 20px; border-color: #facc15; color: #facc15; animation-delay: 0s; }
+        .bubble-2 { top: 30px; right: -10px; border-color: #2dd4bf; color: #2dd4bf; animation-delay: 1s; }
+        .bubble-3 { bottom: 120px; right: -25px; border-color: #fb923c; color: #fb923c; animation-delay: 2s; }
+        .bubble-4 { bottom: 10px; right: 20px; border-color: #3b82f6; color: #3b82f6; animation-delay: 3s; }
+        .bubble-5 { bottom: 20px; left: -10px; border-color: #a855f7; color: #a855f7; animation-delay: 4s; }
+
+        @keyframes floatIcon { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+        /* --- 5. Content Sections --- */
+        .section-title { font-size: 2.2rem; margin-bottom: 40px; font-weight: 700; color: #f8fafc; text-align: center; }
+
+        /* About Section */
+        .about-section { 
+            padding: 0px 20px 100px 20px; 
+            margin-top: -120px;
+            text-align: center; 
+            position: relative;
+            z-index: 10;
+        }
+
+        .about-wrapper {
+            max-width: 800px; margin: 0 auto;
+            background: transparent; 
+            padding: 20px 50px; 
+            border: none; box-shadow: none; backdrop-filter: none;
+            display: flex; flex-direction: column; align-items: center; 
+        }
+
+        .animated-headline {
+            font-size: 2.5rem; font-weight: 800; letter-spacing: 2px;
+            margin-top: 0; margin-bottom: 25px;
+            background: linear-gradient(90deg, #60a5fa, #a78bfa, #60a5fa);
+            background-size: 200% auto; color: transparent;
+            -webkit-background-clip: text; animation: textShine 3s linear infinite; 
+        }
+
+        @keyframes textShine { to { background-position: 200% center; } }
+
+        .about-text {
+            font-size: 1.15rem; line-height: 1.8; color: #cbd5e1;
+            margin-bottom: 20px; text-align: center; 
+        }
+        .about-text:last-child { margin-bottom: 0; }
+
+        /* --- 3D CYLINDRICAL CAROUSEL FOR SKILLS --- */
+        .skills-3d-section {
+            padding: 100px 20px 150px 20px;
+            text-align: center;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        .carousel-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px; 
+            margin-top: 40px;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            width: 250px;   
+            height: 300px; 
+            transform-style: preserve-3d;
+            animation: rotateCarousel 20s linear infinite; 
+        }
+
+        .carousel-wrapper:hover {
+            animation-play-state: paused;
+        }
+
+        .carousel-card {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            transform: rotateY(calc(var(--i) * 60deg)) translateZ(320px);
+            transition: 0.4s;
+        }
+
+        .carousel-card:hover {
+            border-color: #a78bfa;
+            box-shadow: 0 0 40px rgba(167, 139, 250, 0.5);
+            background: rgba(30, 41, 59, 0.9);
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .skill-icon {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-card:hover .skill-icon {
+            transform: scale(1.15) translateY(-5px);
+        }
+
+        .card-content h3 {
+            font-size: 2rem;
+            color: #f8fafc;
+            margin: 0 0 10px 0;
+            text-shadow: 0 0 10px rgba(255,255,255,0.2);
+        }
+
+        .card-content p {
+            color: #a78bfa;
+            font-weight: 500;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        @keyframes rotateCarousel {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        /* --- 6. CINEMATIC SPLASH SCREEN & SAFE ANIMATIONS --- */
+        .splash-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background-color: #030712; display: flex; justify-content: center; align-items: center;
+            z-index: 9999; animation: bgFadeOut 1s ease-in-out 2.5s forwards; pointer-events: none; 
+        }
+        .splash-content { position: relative; width: 600px; height: 300px; display: flex; justify-content: center; align-items: center; }
+        .splash-name {
+            font-size: 3.5rem; font-weight: 800; color: white;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            opacity: 0; animation: fadeInUp 1s ease-in-out forwards, flyLeft 1s ease-in-out 2.5s forwards;
+        }
+        .splash-bubble {
+            position: absolute; width: 40px; height: 40px;
+            border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); color: white; font-weight: bold; font-size: 0.8rem;
+            display: flex; align-items: center; justify-content: center; opacity: 0;
+            animation: fadeInUp 1s ease-in-out forwards, orbitPulse 3s infinite ease-in-out, flyRight 1.2s ease-in-out 2.4s forwards;
+        }
+
+        .sb-1 { top: 20%; left: 20%; color: #facc15; border-color: #facc15; animation-delay: 0s, 0s, 2.4s; }
+        .sb-2 { top: 10%; right: 30%; color: #2dd4bf; border-color: #2dd4bf; animation-delay: 0.2s, 0.2s, 2.4s; }
+        .sb-3 { bottom: 20%; right: 20%; color: #fb923c; border-color: #fb923c; animation-delay: 0.4s, 0.4s, 2.4s; }
+        .sb-4 { bottom: 10%; left: 30%; color: #3b82f6; border-color: #3b82f6; animation-delay: 0.6s, 0.6s, 2.4s; }
+        .sb-5 { top: 50%; right: 10%; color: #a855f7; border-color: #a855f7; animation-delay: 0.8s, 0.8s, 2.4s; }
+
+        @keyframes bgFadeOut { 
+            0% { opacity: 1; visibility: visible; }
+            99% { opacity: 0; visibility: visible; }
+            100% { opacity: 0; visibility: hidden; display: none; }
+        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes orbitPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+        @keyframes flyLeft { to { opacity: 0; transform: translateX(-40vw) scale(0.8); } }
+        @keyframes flyRight { to { opacity: 0; transform: translateX(40vw) scale(0.5); } }
+
+        /* --- 7. ANIMATIONS (Load vs Scroll) --- */
+        .reveal-1 { animation: safeFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 2.5s both; }
+        .reveal-2 { animation: safeFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 2.7s both; }
+
+        @keyframes safeFadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .cinematic-scroll {
+            opacity: 0;
+            transform: translateY(80px) scale(0.95);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+
+        .cinematic-scroll.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1); 
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .top-nav { padding: 20px; }
+            .nav-left, .nav-links { display: none; }
+            .nav-right { justify-content: center; }
+            .hero-container { flex-direction: column-reverse; text-align: center; padding-top: 120px; gap: 40px; }
+            .hero-text { text-align: center; }
+            .action-buttons { justify-content: center; }
+            .social-mini-row { justify-content: center; }
+            .image-wrapper { width: 280px; height: 280px; margin-bottom: 20px; }
+            .image-frame { width: 240px; height: 240px; }
+            .greeting { font-size: 3.5rem; }
+            .about-section { margin-top: 0; padding-top: 40px; } 
+            .about-wrapper { padding: 25px; }
+            .splash-bubble { display: none; }
+            .vfx-bg-particles { display: none; } 
+            .cinematic-scroll { transform: translateY(40px) scale(1); } 
+            
+            .carousel-wrapper { width: 160px; height: 220px; }
+            .carousel-card { transform: rotateY(calc(var(--i) * 60deg)) translateZ(200px); }
+            
+            @keyframes flyLeft { to { opacity: 0; transform: scale(0.8); } }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scroll-progress-bar" id="scrollBar"></div>
+
+    <div class="bg-grid"></div>
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+
+    <div class="vfx-bg-particles">
+        <div class="vfx-logo-particle p1 blur-heavy">Nuke</div>
+        <div class="vfx-logo-particle p2 blur-light">Maya</div>
+        <div class="vfx-logo-particle p3 blur-med">Houdini</div>
+        <div class="vfx-logo-particle p4 blur-heavy">Photoshop</div>
+        <div class="vfx-logo-particle p5 blur-light">After Effects</div>
+        <div class="vfx-logo-particle p6 blur-med">Nuke</div>
+        <div class="vfx-logo-particle p7 blur-heavy">Maya</div>
+        <div class="vfx-logo-particle p8 blur-light">Houdini</div>
+    </div>
+
+    <div class="splash-screen">
+        <div class="splash-content">
+            <h1 class="splash-name">Muhammed Basil KT</h1>
+            <div class="splash-bubble sb-1">Nk</div>
+            <div class="splash-bubble sb-2">Ma</div>
+            <div class="splash-bubble sb-3">Hou</div>
+            <div class="splash-bubble sb-4">Ps</div>
+            <div class="splash-bubble sb-5">Ae</div>
+        </div>
+    </div>
+
+    <nav class="top-nav reveal-1" id="navbar">
+        <div class="nav-left"></div>
+        
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+        </div>
+
+        <div class="nav-right">
+            <a href="#skills" class="nav-btn">View Work</a>
+        </div>
+    </nav>
+
+    <section class="hero-container reveal-2" id="home">
+        
+        <div class="hero-text">
+            <h1 class="greeting">Hi! I'm <br> <span class="name-highlight">Muhammed Basil</span></h1>
+            
+            <div class="terminal-box">
+                <p class="terminal-line">
+                    <span class="typed-text"></span><span class="cursor">&nbsp;</span>
+                </p>
+            </div>
+
+            <div class="action-buttons">
+                <a href="#skills" class="main-button primary">
+                    <i class="fas fa-play"></i> My Skills
+                </a>
+                
+                <a href="mailto:bhasimuhammed@gmail.com" class="main-button secondary">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+
+                <a href="tel:+918137082672" class="main-button secondary" aria-label="Call Me">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+
+            <div class="social-mini-row">
+                <a href="https://www.linkedin.com/in/muhammed-basil-kt-39840426a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/bazisnap/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="image-wrapper">
+                <div class="image-frame">
+                    <img src="profile.jpg" alt="Profile" class="profile-pic">
+                </div>
+
+                <div class="tech-bubble bubble-1">Nk</div>
+                <div class="tech-bubble bubble-2">Ma</div>
+                <div class="tech-bubble bubble-3">Hou</div>
+                <div class="tech-bubble bubble-4">Ps</div>
+                <div class="tech-bubble bubble-5">Ae</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="about-wrapper cinematic-scroll">
+            <h2 class="animated-headline">ABOUT ME</h2> 
+            <div class="about-details">
+                <p class="about-text">
+                    Hello! I am a dedicated visual effects artist specializing as a Roto and Paint Artist, currently bringing cinematic worlds to life at Industrial Light & Magic (ILM) in Mumbai.
+                </p>
+                <p class="about-text">
+                    I thrive on the intricate details of digital compositing, ensuring seamless integration and pixel-perfect results in every shot. Beyond my daily VFX work, I am passionate about exploring 3D art, optimizing high-performance hardware, and continuously expanding my technical skillset to push the boundaries of visual storytelling.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills-3d-section cinematic-scroll" id="skills">
+        <h2 class="section-title">Skills & Software</h2>
+        <div class="carousel-container">
+            <div class="carousel-wrapper">
+                <div class="carousel-card" style="--i: 1;">
+                    <div class="card-content">
+                        <img src="nuke.png" alt="Nuke" class="skill-icon">
+                        <h3>Nuke</h3>
+                        <p>Compositing & CopyCat</p>
+                    </div>
+                </div>
+                <div class="carousel-card" style="--i: 2;">
+                    <div class="card-content">
+                        <img src="silhouette.png" alt="Silhouette" class="skill-icon">
+                        <h3>Silhouette</h3>
+                        <p>Advanced Roto</p>
+                    </div>
+                </div>
+                <div class="carousel-card" style="--i: 3;">
+                    <div class="card-content">
+                        <img src="mocha.png" alt="Mocha Pro" class="skill-icon">
+                        <h3>Mocha Pro</h3>
+                        <p>Planar Tracking</p>
+                    </div>
+                </div>
+                <div class="carousel-card" style="--i: 4;">
+                    <div class="card-content">
+                        <img src="photoshop.png" alt="Photoshop" class="skill-icon">
+                        <h3>Photoshop</h3>
+                        <p>Matte Painting</p>
+                    </div>
+                </div>
+                <div class="carousel-card" style="--i: 5;">
+                    <div class="card-content">
+                        <img src="maya.png" alt="Maya" class="skill-icon">
+                        <h3>Maya</h3>
+                        <p>3D Integration</p>
+                    </div>
+                </div>
+                <div class="carousel-card" style="--i: 6;">
+                    <div class="card-content">
+                        <img src="python.png" alt="Python" class="skill-icon">
+                        <h3>Python</h3>
+                        <p>Pipeline Tools</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // --- CINEMATIC SCROLL OBSERVER ---
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    scrollObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.cinematic-scroll').forEach(el => scrollObserver.observe(el));
+
+        // --- TYPING EFFECT SCRIPT ---
+        const typedTextSpan = document.querySelector(".typed-text");
+        const cursorSpan = document.querySelector(".cursor");
+
+        const textArray = ["Compositor", "3D Artist", "Visual Artist"];
+        const typingDelay = 100;
+        const erasingDelay = 50;
+        const newTextDelay = 2000;
+        let textArrayIndex = 0;
+        let charIndex = 0;
+
+        function type() {
+            if (!typedTextSpan || !cursorSpan) return; 
+            if (charIndex < textArray[textArrayIndex].length) {
+                if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } 
+            else {
+                cursorSpan.classList.remove("typing");
+                setTimeout(erase, newTextDelay);
+            }
+        }
+
+        function erase() {
+            if (!typedTextSpan || !cursorSpan) return; 
+            if (charIndex > 0) {
+                if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } 
+            else {
+                cursorSpan.classList.remove("typing");
+                textArrayIndex++;
+                if(textArrayIndex >= textArray.length) textArrayIndex = 0;
+                setTimeout(type, typingDelay + 500);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() { 
+            if (document.querySelector(".typed-text")) {
+                setTimeout(type, 3500); 
+            }
+        });
+
+        // --- SCROLL EVENTS ---
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            const scrollBar = document.getElementById("scrollBar");
+            if(scrollBar) scrollBar.style.width = scrolled + "%";
+
+            const navbar = document.getElementById("navbar");
+            if (navbar) {
+                if (winScroll > 50) {
+                    navbar.classList.add("scrolled");
+                } else {
+                    navbar.classList.remove("scrolled");
+                }
+            }
+        };
+    </script>
+</body>
+</html>
