@@ -68,7 +68,6 @@ body {
 .p7 { left: 85%; font-size: 9rem; animation-duration: 55s; animation-delay: 25s; }
 .p8 { left: 25%; font-size: 4.5rem; animation-duration: 38s; animation-delay: 10s; }
 
-
 /* --- 3. CENTERED NAVBAR --- */
 .top-nav {
     padding: 30px 50px; 
@@ -155,11 +154,12 @@ body {
 
 /* --- 5. Content Sections (About, Gallery) --- */
 .gallery-section { padding: 100px 20px; text-align: center; }
+.section-title { font-size: 2.2rem; margin-bottom: 40px; font-weight: 700; color: #f8fafc; }
 
 /* Fully Transparent & Pulled Up About Section */
 .about-section { 
     padding: 0px 20px 100px 20px; 
-    margin-top: -120px; /* Pulls it up perfectly under the picture */
+    margin-top: -120px;
     text-align: center; 
     position: relative;
     z-index: 10;
@@ -167,7 +167,7 @@ body {
 
 .about-wrapper {
     max-width: 800px; margin: 0 auto;
-    background: transparent; /* Box is completely invisible now */
+    background: transparent; 
     padding: 20px 50px; 
     border: none;
     box-shadow: none;
@@ -203,8 +203,11 @@ body {
 
 /* Gallery Styles */
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto; }
-.project-card { background: rgba(255,255,255,0.02); border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
-.project-card:hover { transform: translateY(-10px); border-color: #60a5fa; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.project-card { 
+    background: rgba(255,255,255,0.02); border-radius: 15px; overflow: hidden; 
+    border: 1px solid rgba(255,255,255,0.05); transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s; 
+}
+.project-card:hover { transform: translateY(-10px) !important; border-color: #60a5fa; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 .card-image { height: 200px; background-size: cover; background-position: center; }
 .card-info { padding: 20px; text-align: left; }
 .card-info h3 { margin: 0 0 5px 0; font-size: 1.2rem; color: #f8fafc; }
@@ -236,26 +239,44 @@ body {
 .sb-4 { bottom: 10%; left: 30%; color: #3b82f6; border-color: #3b82f6; animation-delay: 0.6s, 0.6s, 2.4s; }
 .sb-5 { top: 50%; right: 10%; color: #a855f7; border-color: #a855f7; animation-delay: 0.8s, 0.8s, 2.4s; }
 
-@keyframes bgFadeOut { to { opacity: 0; visibility: hidden; } }
+@keyframes bgFadeOut { 
+    0% { opacity: 1; visibility: visible; }
+    99% { opacity: 0; visibility: visible; }
+    100% { opacity: 0; visibility: hidden; display: none; }
+}
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes orbitPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
 @keyframes flyLeft { to { opacity: 0; transform: translateX(-40vw) scale(0.8); } }
 @keyframes flyRight { to { opacity: 0; transform: translateX(40vw) scale(0.5); } }
 
-/* NEW: Bulletproof animation for initial load, NO JS required */
-.animate-on-load {
-    opacity: 0;
-    animation: safeFadeIn 1s ease-out 2.5s forwards; /* Waits for splash screen, then appears */
-}
+/* --- 7. ANIMATIONS (Load vs Scroll) --- */
+
+/* Safe Load Animations (For Hero) */
+.reveal-1 { animation: safeFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 2.5s both; }
+.reveal-2 { animation: safeFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 2.7s both; }
 
 @keyframes safeFadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Standard scroll fade */
-.fade-in { opacity: 0; transform: translateY(20px); transition: 1s; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
+/* NEW: Cinematic Scroll Reveal Classes */
+.cinematic-scroll {
+    opacity: 0;
+    transform: translateY(80px) scale(0.95); /* Starts lower and slightly scaled down */
+    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); /* Professional, slow-ease physics */
+    will-change: transform, opacity;
+}
+
+.cinematic-scroll.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* Glides into place */
+}
+
+/* Staggered Delays for Gallery Cards */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.25s; }
+.delay-3 { transition-delay: 0.4s; }
 
 /* Mobile Responsive */
 @media (max-width: 900px) {
@@ -273,5 +294,7 @@ body {
     .about-wrapper { padding: 25px; }
     .splash-bubble { display: none; }
     .vfx-bg-particles { display: none; } 
+    .cinematic-scroll { transform: translateY(40px) scale(1); } /* Softer animation on mobile */
+    .delay-1, .delay-2, .delay-3 { transition-delay: 0s; } /* Remove stagger on mobile column */
     @keyframes flyLeft { to { opacity: 0; transform: scale(0.8); } }
 }
