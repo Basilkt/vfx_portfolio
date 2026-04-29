@@ -156,29 +156,29 @@ body {
 /* --- 5. Content Sections (About, Gallery) --- */
 .gallery-section { padding: 100px 20px; text-align: center; }
 
-/* NEW: About Section Pulled Up Higher */
+/* NEW: About Section Pulled Further Up */
 .about-section { 
-    padding: 0px 20px 100px 20px; /* Removed top padding */
-    margin-top: -60px; /* Negative margin pulls the box much higher up */
+    padding: 0px 20px 100px 20px; 
+    margin-top: -200px; /* Greatly increased to pull it high up into the empty space */
     text-align: center; 
     position: relative;
     z-index: 10;
 }
 
-/* Updated Wrapper for Centered Content */
+/* Updated Wrapper for Fully Transparent Content */
 .about-wrapper {
     max-width: 800px; margin: 0 auto;
-    background: rgba(255,255,255,0.02); 
-    padding: 40px 50px; 
-    border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    backdrop-filter: blur(10px);
+    background: transparent; /* Made the box transparent */
+    padding: 20px 50px; 
+    border: none; /* Removed the border outline */
+    box-shadow: none; /* Removed the shadow */
+    backdrop-filter: none; /* Removed the blur */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers everything inside the box horizontally */
+    align-items: center; 
 }
 
-/* New Animated Headline Gradient Sweep */
+/* Animated Headline Gradient Sweep */
 .animated-headline {
     font-size: 2.5rem;
     font-weight: 800;
@@ -189,7 +189,7 @@ body {
     background-size: 200% auto;
     color: transparent;
     -webkit-background-clip: text;
-    animation: textShine 3s linear infinite; /* Smooth color sweeping animation */
+    animation: textShine 3s linear infinite; 
 }
 
 @keyframes textShine {
@@ -199,7 +199,7 @@ body {
 .about-text {
     font-size: 1.15rem; line-height: 1.8; color: #cbd5e1;
     margin-bottom: 20px; 
-    text-align: center; /* Centers the actual paragraph text */
+    text-align: center; 
 }
 .about-text:last-child { margin-bottom: 0; }
 
@@ -256,7 +256,7 @@ body {
     .image-wrapper { width: 280px; height: 280px; margin-bottom: 20px; }
     .image-frame { width: 240px; height: 240px; }
     .greeting { font-size: 3.5rem; }
-    .about-section { margin-top: 0; padding-top: 40px; } /* Reset spacing for mobile view */
+    .about-section { margin-top: 0; padding-top: 40px; } 
     .about-wrapper { padding: 25px; }
     .splash-bubble { display: none; }
     .vfx-bg-particles { display: none; } 
