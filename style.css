@@ -156,29 +156,27 @@ body {
 /* --- 5. Content Sections (About, Gallery) --- */
 .gallery-section { padding: 100px 20px; text-align: center; }
 
-/* NEW: About Section Pulled Further Up */
+/* Fully Transparent & Pulled Up About Section */
 .about-section { 
     padding: 0px 20px 100px 20px; 
-    margin-top: -200px; /* Greatly increased to pull it high up into the empty space */
+    margin-top: -120px; /* Pulls it up perfectly under the picture */
     text-align: center; 
     position: relative;
     z-index: 10;
 }
 
-/* Updated Wrapper for Fully Transparent Content */
 .about-wrapper {
     max-width: 800px; margin: 0 auto;
-    background: transparent; /* Made the box transparent */
+    background: transparent; /* Box is completely invisible now */
     padding: 20px 50px; 
-    border: none; /* Removed the border outline */
-    box-shadow: none; /* Removed the shadow */
-    backdrop-filter: none; /* Removed the blur */
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
     display: flex;
     flex-direction: column;
     align-items: center; 
 }
 
-/* Animated Headline Gradient Sweep */
 .animated-headline {
     font-size: 2.5rem;
     font-weight: 800;
@@ -212,7 +210,7 @@ body {
 .card-info h3 { margin: 0 0 5px 0; font-size: 1.2rem; color: #f8fafc; }
 .card-info p { margin: 0; color: #94a3b8; font-size: 0.9rem; }
 
-/* --- 6. CINEMATIC SPLASH SCREEN --- */
+/* --- 6. CINEMATIC SPLASH SCREEN & SAFE ANIMATIONS --- */
 .splash-screen {
     position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
     background-color: #030712; display: flex; justify-content: center; align-items: center;
@@ -244,6 +242,21 @@ body {
 @keyframes flyLeft { to { opacity: 0; transform: translateX(-40vw) scale(0.8); } }
 @keyframes flyRight { to { opacity: 0; transform: translateX(40vw) scale(0.5); } }
 
+/* NEW: Bulletproof animation for initial load, NO JS required */
+.animate-on-load {
+    opacity: 0;
+    animation: safeFadeIn 1s ease-out 2.5s forwards; /* Waits for splash screen, then appears */
+}
+
+@keyframes safeFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Standard scroll fade */
+.fade-in { opacity: 0; transform: translateY(20px); transition: 1s; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
 /* Mobile Responsive */
 @media (max-width: 900px) {
     .top-nav { padding: 20px; }
@@ -262,5 +275,3 @@ body {
     .vfx-bg-particles { display: none; } 
     @keyframes flyLeft { to { opacity: 0; transform: scale(0.8); } }
 }
-.fade-in { opacity: 0; transform: translateY(20px); transition: 1s; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
