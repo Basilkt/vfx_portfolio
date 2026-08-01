@@ -194,7 +194,7 @@ body {
 }
 
 .voronoi-stage {
-    width: 100%;                  /* Forces stage to span full browser width */
+    width: 100%;                  /* Expanded to cover left & right edges */
     max-width: 100%;              
     margin: 50px 0 0 0;
     height: 520px;
