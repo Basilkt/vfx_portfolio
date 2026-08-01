@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- 1. Global Settings --- */
         body {
             margin: 0; padding: 0;
             font-family: 'Outfit', sans-serif;
@@ -17,14 +16,12 @@
             overflow-x: hidden;
         }
 
-        /* --- THE SCROLL PROGRESS BAR --- */
         .scroll-progress-bar {
             position: fixed; top: 0; left: 0; width: 0%; height: 4px;
             background: linear-gradient(to right, #60a5fa, #a78bfa);
             z-index: 99999; transition: width 0.1s;
         }
 
-        /* --- 2. PREMIUM CINEMATIC BACKGROUND ATMOSPHERE --- */
         .bg-grid {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background-image: 
@@ -43,7 +40,6 @@
         .blob-2 { bottom: -200px; right: -200px; background: radial-gradient(#8b5cf6, transparent 60%); }
         @keyframes float { 0% { transform: translate(0, 0); } 100% { transform: translate(80px, 80px); } }
 
-        /* Holographic Floating VFX Words */
         .vfx-bg-particles {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             overflow: hidden; z-index: -2; pointer-events: none;
@@ -78,7 +74,6 @@
         .p7 { left: 85%; font-size: 9rem; animation-duration: 55s; animation-delay: 25s; }
         .p8 { left: 25%; font-size: 4.5rem; animation-duration: 38s; animation-delay: 10s; }
 
-        /* --- 3. CENTERED NAVBAR --- */
         .top-nav {
             padding: 30px 50px; 
             position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
@@ -105,7 +100,6 @@
         }
         .nav-btn:hover { background: rgba(139, 92, 246, 0.1); transform: scale(1.05); }
 
-        /* --- 4. Main Hero Section --- */
         .hero-container {
             min-height: 100vh; display: flex; align-items: center; justify-content: space-between;
             max-width: 1200px; margin: 0 auto; padding: 0 50px; gap: 20px;
@@ -162,10 +156,8 @@
 
         @keyframes floatIcon { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
-        /* --- 5. Content Sections --- */
         .section-title { font-size: 2.2rem; margin-bottom: 40px; font-weight: 700; color: #f8fafc; text-align: center; }
 
-        /* About Section */
         .about-section { 
             padding: 0px 20px 100px 20px; 
             margin-top: -120px;
@@ -198,97 +190,87 @@
         }
         .about-text:last-child { margin-bottom: 0; }
 
-        /* --- 3D CYLINDRICAL CAROUSEL FOR SKILLS --- */
-        .skills-3d-section {
+        .skills-tunnel-section {
             padding: 100px 20px 150px 20px;
             text-align: center;
-            overflow: hidden;
-            perspective: 1000px;
+            perspective: 1400px;
         }
 
-        .carousel-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 400px; 
-            margin-top: 40px;
-        }
-
-        .carousel-wrapper {
+        .tunnel-stage {
+            max-width: 820px;
+            margin: 50px auto 0;
+            height: 460px;
             position: relative;
-            width: 250px;   
-            height: 300px; 
             transform-style: preserve-3d;
-            animation: rotateCarousel 20s linear infinite; 
         }
 
-        .carousel-wrapper:hover {
-            animation-play-state: paused;
-        }
-
-        .carousel-card {
+        .tunnel-grid {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(96, 165, 250, 0.3);
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
-            backdrop-filter: blur(8px);
-            transform: rotateY(calc(var(--i) * 60deg)) translateZ(320px);
-            transition: 0.4s;
+            inset: 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 3px;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg) rotateX(0deg);
+            transition: transform 0.25s ease-out;
+            will-change: transform;
         }
 
-        .carousel-card:hover {
-            border-color: #a78bfa;
-            box-shadow: 0 0 40px rgba(167, 139, 250, 0.5);
-            background: rgba(30, 41, 59, 0.9);
+        .voronoi-cell {
+            position: relative;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        clip-path 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.4s, border-color 0.4s;
         }
 
-        .card-content {
+        .voronoi-cell:hover {
+            transform: scale(1.15) translateZ(70px);
+            z-index: 5;
+            box-shadow: 0 0 45px var(--accent, #60a5fa);
+            border-color: var(--accent, #60a5fa);
+        }
+
+        .cell-inner {
+            position: absolute;
+            inset: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 8px;
+            padding: 10px;
             text-align: center;
+            transform: translate(var(--px, 0px), var(--py, 0px));
+            transition: transform 0.15s linear;
         }
 
-        .skill-icon {
-            width: 70px;
-            height: 70px;
-            object-fit: contain;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+        .cell-inner img.skill-icon {
+            width: 48px; height: 48px; object-fit: contain;
+            filter: drop-shadow(0 0 8px rgba(0,0,0,0.5));
             transition: transform 0.3s ease;
-        }
-
-        .carousel-card:hover .skill-icon {
-            transform: scale(1.15) translateY(-5px);
-        }
-
-        .card-content h3 {
-            font-size: 2rem;
-            color: #f8fafc;
-            margin: 0 0 10px 0;
-            text-shadow: 0 0 10px rgba(255,255,255,0.2);
-        }
-
-        .card-content p {
-            color: #a78bfa;
-            font-weight: 500;
             margin: 0;
-            font-size: 1.1rem;
         }
 
-        @keyframes rotateCarousel {
-            0% { transform: rotateY(0deg); }
-            100% { transform: rotateY(360deg); }
+        .voronoi-cell:hover .cell-inner img.skill-icon {
+            transform: scale(1.15) translateY(-4px);
         }
 
-        /* --- 6. CINEMATIC SPLASH SCREEN & SAFE ANIMATIONS --- */
+        .cell-inner h3 {
+            margin: 0; font-size: 1.05rem; color: #f8fafc;
+            text-shadow: 0 0 10px rgba(255,255,255,0.15);
+        }
+
+        .cell-inner p {
+            margin: 0; font-size: 0.8rem; font-weight: 500;
+            color: var(--accent, #a78bfa);
+        }
+
         .splash-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background-color: #030712; display: flex; justify-content: center; align-items: center;
@@ -313,296 +295,3 @@
         .sb-3 { bottom: 20%; right: 20%; color: #fb923c; border-color: #fb923c; animation-delay: 0.4s, 0.4s, 2.4s; }
         .sb-4 { bottom: 10%; left: 30%; color: #3b82f6; border-color: #3b82f6; animation-delay: 0.6s, 0.6s, 2.4s; }
         .sb-5 { top: 50%; right: 10%; color: #a855f7; border-color: #a855f7; animation-delay: 0.8s, 0.8s, 2.4s; }
-
-        @keyframes bgFadeOut { 
-            0% { opacity: 1; visibility: visible; }
-            99% { opacity: 0; visibility: visible; }
-            100% { opacity: 0; visibility: hidden; display: none; }
-        }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes orbitPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
-        @keyframes flyLeft { to { opacity: 0; transform: translateX(-40vw) scale(0.8); } }
-        @keyframes flyRight { to { opacity: 0; transform: translateX(40vw) scale(0.5); } }
-
-        /* --- 7. ANIMATIONS (Load vs Scroll) --- */
-        .reveal-1 { animation: safeFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 2.5s both; }
-        .reveal-2 { animation: safeFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 2.7s both; }
-
-        @keyframes safeFadeIn {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        .cinematic-scroll {
-            opacity: 0;
-            transform: translateY(80px) scale(0.95);
-            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-            will-change: transform, opacity;
-        }
-
-        .cinematic-scroll.visible {
-            opacity: 1;
-            transform: translateY(0) scale(1); 
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 900px) {
-            .top-nav { padding: 20px; }
-            .nav-left, .nav-links { display: none; }
-            .nav-right { justify-content: center; }
-            .hero-container { flex-direction: column-reverse; text-align: center; padding-top: 120px; gap: 40px; }
-            .hero-text { text-align: center; }
-            .action-buttons { justify-content: center; }
-            .social-mini-row { justify-content: center; }
-            .image-wrapper { width: 280px; height: 280px; margin-bottom: 20px; }
-            .image-frame { width: 240px; height: 240px; }
-            .greeting { font-size: 3.5rem; }
-            .about-section { margin-top: 0; padding-top: 40px; } 
-            .about-wrapper { padding: 25px; }
-            .splash-bubble { display: none; }
-            .vfx-bg-particles { display: none; } 
-            .cinematic-scroll { transform: translateY(40px) scale(1); } 
-            
-            .carousel-wrapper { width: 160px; height: 220px; }
-            .carousel-card { transform: rotateY(calc(var(--i) * 60deg)) translateZ(200px); }
-            
-            @keyframes flyLeft { to { opacity: 0; transform: scale(0.8); } }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="scroll-progress-bar" id="scrollBar"></div>
-
-    <div class="bg-grid"></div>
-    <div class="bg-blob blob-1"></div>
-    <div class="bg-blob blob-2"></div>
-
-    <div class="vfx-bg-particles">
-        <div class="vfx-logo-particle p1 blur-heavy">Nuke</div>
-        <div class="vfx-logo-particle p2 blur-light">Maya</div>
-        <div class="vfx-logo-particle p3 blur-med">Houdini</div>
-        <div class="vfx-logo-particle p4 blur-heavy">Photoshop</div>
-        <div class="vfx-logo-particle p5 blur-light">After Effects</div>
-        <div class="vfx-logo-particle p6 blur-med">Nuke</div>
-        <div class="vfx-logo-particle p7 blur-heavy">Maya</div>
-        <div class="vfx-logo-particle p8 blur-light">Houdini</div>
-    </div>
-
-    <div class="splash-screen">
-        <div class="splash-content">
-            <h1 class="splash-name">Muhammed Basil KT</h1>
-            <div class="splash-bubble sb-1">Nk</div>
-            <div class="splash-bubble sb-2">Ma</div>
-            <div class="splash-bubble sb-3">Hou</div>
-            <div class="splash-bubble sb-4">Ps</div>
-            <div class="splash-bubble sb-5">Ae</div>
-        </div>
-    </div>
-
-    <nav class="top-nav reveal-1" id="navbar">
-        <div class="nav-left"></div>
-        
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#education">Education</a>
-        </div>
-
-        <div class="nav-right">
-            <a href="#skills" class="nav-btn">View Work</a>
-        </div>
-    </nav>
-
-    <section class="hero-container reveal-2" id="home">
-        
-        <div class="hero-text">
-            <h1 class="greeting">Hi! I'm <br> <span class="name-highlight">Muhammed Basil</span></h1>
-            
-            <div class="terminal-box">
-                <p class="terminal-line">
-                    <span class="typed-text"></span><span class="cursor">&nbsp;</span>
-                </p>
-            </div>
-
-            <div class="action-buttons">
-                <a href="#skills" class="main-button primary">
-                    <i class="fas fa-play"></i> My Skills
-                </a>
-                
-                <a href="mailto:bhasimuhammed@gmail.com" class="main-button secondary">
-                    <i class="fas fa-envelope"></i> Email
-                </a>
-
-                <a href="tel:+918137082672" class="main-button secondary" aria-label="Call Me">
-                    <i class="fas fa-phone"></i>
-                </a>
-            </div>
-
-            <div class="social-mini-row">
-                <a href="https://www.linkedin.com/in/muhammed-basil-kt-39840426a/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/bazisnap/" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-
-        <div class="hero-image">
-            <div class="image-wrapper">
-                <div class="image-frame">
-                    <img src="profile.jpg" alt="Profile" class="profile-pic">
-                </div>
-
-                <div class="tech-bubble bubble-1">Nk</div>
-                <div class="tech-bubble bubble-2">Ma</div>
-                <div class="tech-bubble bubble-3">Hou</div>
-                <div class="tech-bubble bubble-4">Ps</div>
-                <div class="tech-bubble bubble-5">Ae</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="about-section" id="about">
-        <div class="about-wrapper cinematic-scroll">
-            <h2 class="animated-headline">ABOUT ME</h2> 
-            <div class="about-details">
-                <p class="about-text">
-                    Hello! I am a dedicated visual effects artist specializing as a Roto and Paint Artist, currently bringing cinematic worlds to life at Industrial Light & Magic (ILM) in Mumbai.
-                </p>
-                <p class="about-text">
-                    I thrive on the intricate details of digital compositing, ensuring seamless integration and pixel-perfect results in every shot. Beyond my daily VFX work, I am passionate about exploring 3D art, optimizing high-performance hardware, and continuously expanding my technical skillset to push the boundaries of visual storytelling.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="skills-3d-section cinematic-scroll" id="skills">
-        <h2 class="section-title">Skills & Software</h2>
-        <div class="carousel-container">
-            <div class="carousel-wrapper">
-                <div class="carousel-card" style="--i: 1;">
-                    <div class="card-content">
-                        <img src="nuke.png" alt="Nuke" class="skill-icon">
-                        <h3>Nuke</h3>
-                        <p>Compositing & CopyCat</p>
-                    </div>
-                </div>
-                <div class="carousel-card" style="--i: 2;">
-                    <div class="card-content">
-                        <img src="silhouette.png" alt="Silhouette" class="skill-icon">
-                        <h3>Silhouette</h3>
-                        <p>Advanced Roto</p>
-                    </div>
-                </div>
-                <div class="carousel-card" style="--i: 3;">
-                    <div class="card-content">
-                        <img src="mocha.png" alt="Mocha Pro" class="skill-icon">
-                        <h3>Mocha Pro</h3>
-                        <p>Planar Tracking</p>
-                    </div>
-                </div>
-                <div class="carousel-card" style="--i: 4;">
-                    <div class="card-content">
-                        <img src="photoshop.png" alt="Photoshop" class="skill-icon">
-                        <h3>Photoshop</h3>
-                        <p>Matte Painting</p>
-                    </div>
-                </div>
-                <div class="carousel-card" style="--i: 5;">
-                    <div class="card-content">
-                        <img src="maya.png" alt="Maya" class="skill-icon">
-                        <h3>Maya</h3>
-                        <p>3D Integration</p>
-                    </div>
-                </div>
-                <div class="carousel-card" style="--i: 6;">
-                    <div class="card-content">
-                        <img src="python.png" alt="Python" class="skill-icon">
-                        <h3>Python</h3>
-                        <p>Pipeline Tools</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // --- CINEMATIC SCROLL OBSERVER ---
-        const scrollObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    scrollObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
-
-        document.querySelectorAll('.cinematic-scroll').forEach(el => scrollObserver.observe(el));
-
-        // --- TYPING EFFECT SCRIPT ---
-        const typedTextSpan = document.querySelector(".typed-text");
-        const cursorSpan = document.querySelector(".cursor");
-
-        const textArray = ["Compositor", "3D Artist", "Visual Artist"];
-        const typingDelay = 100;
-        const erasingDelay = 50;
-        const newTextDelay = 2000;
-        let textArrayIndex = 0;
-        let charIndex = 0;
-
-        function type() {
-            if (!typedTextSpan || !cursorSpan) return; 
-            if (charIndex < textArray[textArrayIndex].length) {
-                if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-                charIndex++;
-                setTimeout(type, typingDelay);
-            } 
-            else {
-                cursorSpan.classList.remove("typing");
-                setTimeout(erase, newTextDelay);
-            }
-        }
-
-        function erase() {
-            if (!typedTextSpan || !cursorSpan) return; 
-            if (charIndex > 0) {
-                if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
-                charIndex--;
-                setTimeout(erase, erasingDelay);
-            } 
-            else {
-                cursorSpan.classList.remove("typing");
-                textArrayIndex++;
-                if(textArrayIndex >= textArray.length) textArrayIndex = 0;
-                setTimeout(type, typingDelay + 500);
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", function() { 
-            if (document.querySelector(".typed-text")) {
-                setTimeout(type, 3500); 
-            }
-        });
-
-        // --- SCROLL EVENTS ---
-        window.onscroll = function() {
-            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100;
-            const scrollBar = document.getElementById("scrollBar");
-            if(scrollBar) scrollBar.style.width = scrolled + "%";
-
-            const navbar = document.getElementById("navbar");
-            if (navbar) {
-                if (winScroll > 50) {
-                    navbar.classList.add("scrolled");
-                } else {
-                    navbar.classList.remove("scrolled");
-                }
-            }
-        };
-    </script>
-</body>
-</html>
