@@ -188,21 +188,20 @@ body {
 
 /* --- 6. Dynamic Voronoi Physics Engine Stage --- */
 .skills-tunnel-section {
-    padding: 100px 0px 150px 0px; /* Zero padding to stretch full viewport width */
+    padding: 100px 0px 150px 0px;
     text-align: center;
     width: 100%;
 }
 
 .voronoi-stage {
-    width: 100%;                  /* Expanded to cover left & right edges */
-    max-width: 100%;              
+    width: 100%;
+    max-width: 100%;
     margin: 50px 0 0 0;
     height: 520px;
     position: relative;
     background: transparent; 
-    border: none;             
+    border: none;
     overflow: hidden;
-    /* Box shadows and blur filters removed to natively float over global grid lines */
 }
 
 #voronoiSVG {
@@ -331,83 +330,4 @@ body {
 }
 .splash-content { position: relative; width: 600px; height: 300px; display: flex; justify-content: center; align-items: center; }
 .splash-name {
-    font-size: 3.5rem; font-weight: 800; color: white;
-    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    opacity: 0; animation: fadeInUp 1s ease-in-out forwards, flyLeft 1s ease-in-out 2.5s forwards;
-}
-.splash-bubble {
-    position: absolute; width: 40px; height: 40px;
-    border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); color: white; font-weight: bold; font-size: 0.8rem;
-    display: flex; align-items: center; justify-content: center; opacity: 0;
-    animation: fadeInUp 1s ease-in-out forwards, orbitPulse 3s infinite ease-in-out, flyRight 1.2s ease-in-out 2.4s forwards;
-}
-
-.sb-1 { top: 20%; left: 20%; color: #facc15; border-color: #facc15; animation-delay: 0s, 0s, 2.4s; }
-.sb-2 { top: 10%; right: 30%; color: #2dd4bf; border-color: #2dd4bf; animation-delay: 0.2s, 0.2s, 2.4s; }
-.sb-3 { bottom: 20%; right: 20%; color: #fb923c; border-color: #fb923c; animation-delay: 0.4s, 0.4s, 2.4s; }
-.sb-4 { bottom: 10%; left: 30%; color: #3b82f6; border-color: #3b82f6; animation-delay: 0.6s, 0.6s, 2.4s; }
-.sb-5 { top: 50%; right: 10%; color: #a855f7; border-color: #a855f7; animation-delay: 0.8s, 0.8s, 2.4s; }
-
-@keyframes bgFadeOut { 
-    0% { opacity: 1; visibility: visible; }
-    99% { opacity: 0; visibility: visible; }
-    100% { opacity: 0; visibility: hidden; display: none; }
-}
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes orbitPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
-@keyframes flyLeft { to { opacity: 0; transform: translateX(-40vw) scale(0.8); } }
-@keyframes flyRight { to { opacity: 0; transform: translateX(40vw) scale(0.5); } }
-
-.reveal-1 { animation: safeFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 2.5s both; }
-.reveal-2 { animation: safeFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 2.7s both; }
-
-@keyframes safeFadeIn {
-    0% { opacity: 0; transform: translateY(30px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-.cinematic-scroll {
-    opacity: 0;
-    transform: translateY(80px) scale(0.95);
-    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform, opacity;
-}
-
-.cinematic-scroll.visible {
-    opacity: 1;
-    transform: translateY(0) scale(1); 
-}
-
-/* --- 10. Responsive Media Queries --- */
-@media (max-width: 900px) {
-    .top-nav { padding: 20px; }
-    .nav-left, .nav-links { display: none; }
-    .nav-right { justify-content: center; }
-    .hero-container { flex-direction: column-reverse; text-align: center; padding-top: 120px; gap: 40px; }
-    .hero-text { text-align: center; }
-    .action-buttons { justify-content: center; }
-    .social-mini-row { justify-content: center; }
-    .image-wrapper { width: 280px; height: 280px; margin-bottom: 20px; }
-    .image-frame { width: 240px; height: 240px; }
-    .greeting { font-size: 3.5rem; }
-    .about-section { margin-top: 0; padding-top: 40px; } 
-    .about-wrapper { padding: 25px; }
-    .splash-bubble { display: none; }
-    .vfx-bg-particles { display: none; } 
-    .cinematic-scroll { transform: translateY(40px) scale(1); } 
-    
-    @keyframes flyLeft { to { opacity: 0; transform: scale(0.8); } }
-}
-
-@media (max-width: 768px) {
-    .voronoi-stage {
-        height: 600px;
-    }
-    .skill-title {
-        font-size: 0.95rem;
-    }
-    .skill-desc {
-        display: none; 
-    }
-}
+    font-size: 3.5rem; font-weight: 800;
