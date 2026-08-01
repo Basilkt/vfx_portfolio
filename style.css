@@ -251,7 +251,72 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* --- 7. Education Section --- */
+/* --- 7. EXPERIENCE SECTION --- */
+.experience-section {
+    padding: 100px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+.experience-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.experience-card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 4px solid #8b5cf6;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: left;
+    transition: transform 0.3s, border-color 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
+}
+
+.exp-date {
+    font-size: 0.9rem;
+    color: #a78bfa;
+    font-weight: 600;
+}
+
+.experience-card h3 {
+    margin: 10px 0 5px 0;
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+
+.exp-company {
+    color: #94a3b8;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.exp-details {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin: 0;
+    padding-left: 20px;
+    list-style: disc;
+}
+
+.exp-details li {
+    margin-bottom: 10px;
+}
+
+/* --- 8. EDUCATION SECTION --- */
 .education-section {
     padding: 100px 20px;
     max-width: 800px;
@@ -310,7 +375,7 @@ body {
     margin: 0;
 }
 
-/* --- 8. Footer Section --- */
+/* --- 9. Footer Section --- */
 .main-footer {
     padding: 40px 20px;
     text-align: center;
@@ -322,7 +387,7 @@ body {
     z-index: 10;
 }
 
-/* --- 9. Splash Screen --- */
+/* --- 10. Splash Screen --- */
 .splash-screen {
     position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
     background-color: #030712; display: flex; justify-content: center; align-items: center;
@@ -378,7 +443,7 @@ body {
     transform: translateY(0) scale(1); 
 }
 
-/* --- 10. Responsive Media Queries --- */
+/* --- 11. Responsive Media Queries --- */
 @media (max-width: 900px) {
     .top-nav { padding: 20px; }
     .nav-left, .nav-links { display: none; }
@@ -413,6 +478,12 @@ body {
         padding: 20px;
     }
     .education-card h3 {
+        font-size: 1.2rem;
+    }
+    .experience-card {
+        padding: 20px;
+    }
+    .experience-card h3 {
         font-size: 1.2rem;
     }
 }
