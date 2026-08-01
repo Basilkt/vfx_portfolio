@@ -6,13 +6,11 @@
     <title>Muhammed Basil KT | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Links to your separate style.css file -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="scroll-progress-bar" id="scrollBar"></div>
-
     <div class="bg-grid"></div>
     <div class="bg-blob blob-1"></div>
     <div class="bg-blob blob-2"></div>
@@ -41,57 +39,48 @@
 
     <nav class="top-nav reveal-1" id="navbar">
         <div class="nav-left"></div>
-        
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
             <a href="#education">Education</a>
         </div>
-
         <div class="nav-right">
             <a href="#skills" class="nav-btn">View Work</a>
         </div>
     </nav>
 
     <section class="hero-container reveal-2" id="home">
-        
         <div class="hero-text">
             <h1 class="greeting">Hi! I'm <br> <span class="name-highlight">Muhammed Basil</span></h1>
-            
             <div class="terminal-box">
                 <p class="terminal-line">
                     <span class="typed-text"></span><span class="cursor">&nbsp;</span>
                 </p>
             </div>
-
             <div class="action-buttons">
                 <a href="#skills" class="main-button primary">
                     <i class="fas fa-play"></i> My Skills
                 </a>
-                
                 <a href="mailto:bhasimuhammed@gmail.com" class="main-button secondary">
                     <i class="fas fa-envelope"></i> Email
                 </a>
-
                 <a href="tel:+918137082672" class="main-button secondary" aria-label="Call Me">
                     <i class="fas fa-phone"></i>
                 </a>
             </div>
-
             <div class="social-mini-row">
                 <a href="https://www.linkedin.com/in/muhammed-basil-kt-39840426a/" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://www.instagram.com/bazisnap/" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
-
         <div class="hero-image">
             <div class="image-wrapper">
                 <div class="image-frame">
                     <img src="images/profile.jpg" alt="Profile" class="profile-pic">
                 </div>
-
                 <div class="tech-bubble bubble-1">Nk</div>
                 <div class="tech-bubble bubble-2">Ma</div>
                 <div class="tech-bubble bubble-3">Hou</div>
@@ -115,11 +104,49 @@
         </div>
     </section>
 
-    <!-- Interactive Voronoi Physics Section (Now Full Width) -->
     <section class="skills-tunnel-section cinematic-scroll" id="skills">
         <h2 class="section-title">Skills & Software</h2>
         <div class="voronoi-stage" id="voronoiStage">
             <svg id="voronoiSVG"></svg>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience-section cinematic-scroll" id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-wrapper">
+            
+            <div class="experience-card">
+                <span class="exp-date">03/2025 – Present</span>
+                <h3>Junior Roto / Paint Artist</h3>
+                <p class="exp-company">Industrial Light & Magic (ILM), Mumbai</p>
+                <ul class="exp-details">
+                    <li>Utilized Machine Learning and AI tools to accelerate roto/paint workflows with high precision</li>
+                    <li>Ensured all outputs met ILM's world-class benchmarks for edge fidelity and flawless integration</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <span class="exp-date">03/2024 – 03/2025</span>
+                <h3>Graduate Artist</h3>
+                <p class="exp-company">Jedi Academy (ILM), Mumbai</p>
+                <ul class="exp-details">
+                    <li>Accelerated through intensive training in the ILM global pipeline, mastering proprietary tools and workflows</li>
+                    <li>Assisted lead artists on high-profile VFX sequences, ensuring clean plates and accurate masks for downstream compositing</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <span class="exp-date">05/2023 – 11/2023</span>
+                <h3>VFX Compositor Intern</h3>
+                <p class="exp-company">Digital Turbo Media, Ernakulam, Kerala</p>
+                <ul class="exp-details">
+                    <li>Executed Roto, Paint/Prep, and Matchmove for Malayalam, Tamil, and Hindi feature films</li>
+                    <li>Integrated 2D/3D elements using Nuke and After Effects with precise keying and color matching</li>
+                    <li>Created digital matte paintings and clean plates in Photoshop for rig removals and extensions</li>
+                </ul>
+            </div>
+
         </div>
     </section>
 
