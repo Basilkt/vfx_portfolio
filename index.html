@@ -112,110 +112,87 @@
         </div>
     </section>
 
-    <!-- Work Gallery Section with Movie Posters Carousel -->
+    <!-- Work Gallery Section with Movie Posters Gallery -->
     <section class="work-gallery-section cinematic-scroll" id="work">
         <h2 class="section-title">Featured Work</h2>
-        <div class="gallery-filters">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="ilm">ILM</button>
-            <button class="filter-btn" data-filter="dtm">DTM</button>
-        </div>
         
-        <!-- Animated Poster Carousel -->
-        <div class="posters-carousel-container">
-            <div class="posters-carousel">
-                <div class="poster-item" data-category="ilm">
-                    <div class="poster-card">
-                        <div class="poster-image" style="background: linear-gradient(135deg, #facc15, #fb923c);">
-                            <i class="fas fa-film"></i>
-                            <span>The Running Man</span>
-                        </div>
-                        <div class="poster-info">
+        <!-- Movie Posters Looping Gallery -->
+        <div class="movie-posters-wrapper">
+            <div class="movie-posters-track">
+                <!-- Row 1 - Scrolling Left to Right -->
+                <div class="poster-row">
+                    <div class="movie-poster" data-category="ilm">
+                        <img src="https://via.placeholder.com/200x300/facc15/000000?text=The+Running+Man" alt="The Running Man" class="poster-img">
+                        <div class="poster-overlay">
                             <h4>The Running Man</h4>
-                            <p class="poster-role">Roto / Prep Artist</p>
+                            <p>Roto / Prep Artist</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="poster-item" data-category="ilm">
-                    <div class="poster-card">
-                        <div class="poster-image" style="background: linear-gradient(135deg, #2dd4bf, #3b82f6);">
-                            <i class="fas fa-film"></i>
-                            <span>Stranger Things</span>
-                        </div>
-                        <div class="poster-info">
+                    <div class="movie-poster" data-category="ilm">
+                        <img src="https://via.placeholder.com/200x300/2dd4bf/000000?text=Stranger+Things" alt="Stranger Things" class="poster-img">
+                        <div class="poster-overlay">
                             <h4>Stranger Things</h4>
-                            <p class="poster-role">Roto / Prep Artist</p>
+                            <p>Roto / Prep Artist</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="poster-item" data-category="ilm">
-                    <div class="poster-card">
-                        <div class="poster-image" style="background: linear-gradient(135deg, #a855f7, #ec4899);">
-                            <i class="fas fa-film"></i>
-                            <span>Tron: Ares</span>
-                        </div>
-                        <div class="poster-info">
+                    <div class="movie-poster" data-category="ilm">
+                        <img src="https://via.placeholder.com/200x300/a855f7/000000?text=Tron+Ares" alt="Tron: Ares" class="poster-img">
+                        <div class="poster-overlay">
                             <h4>Tron: Ares</h4>
-                            <p class="poster-role">Roto / Prep Artist</p>
+                            <p>Roto / Prep Artist</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="poster-item" data-category="dtm">
-                    <div class="poster-card">
-                        <div class="poster-image" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">
-                            <i class="fas fa-film"></i>
-                            <span>Perilloor Premier League</span>
-                        </div>
-                        <div class="poster-info">
-                            <h4>Perilloor Premier League</h4>
-                            <p class="poster-role">VFX Compositor</p>
+                    <div class="movie-poster" data-category="dtm">
+                        <img src="https://via.placeholder.com/200x300/f59e0b/000000?text=Perilloor+Premier" alt="Perilloor Premier League" class="poster-img">
+                        <div class="poster-overlay">
+                            <h4>Perilloor Premier</h4>
+                            <p>VFX Compositor</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="poster-item" data-category="dtm">
-                    <div class="poster-card">
-                        <div class="poster-image" style="background: linear-gradient(135deg, #06b6d4, #10b981);">
-                            <i class="fas fa-film"></i>
-                            <span>Kannur Squad</span>
-                        </div>
-                        <div class="poster-info">
+                    <div class="movie-poster" data-category="dtm">
+                        <img src="https://via.placeholder.com/200x300/06b6d4/000000?text=Kannur+Squad" alt="Kannur Squad" class="poster-img">
+                        <div class="poster-overlay">
                             <h4>Kannur Squad</h4>
-                            <p class="poster-role">VFX Compositor</p>
+                            <p>VFX Compositor</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="poster-item" data-category="dtm">
-                    <div class="poster-card">
-                        <div class="poster-image" style="background: linear-gradient(135deg, #8b5cf6, #6366f1);">
-                            <i class="fas fa-film"></i>
-                            <span>Toby</span>
-                        </div>
-                        <div class="poster-info">
+                    <div class="movie-poster" data-category="dtm">
+                        <img src="https://via.placeholder.com/200x300/8b5cf6/000000?text=Toby" alt="Toby" class="poster-img">
+                        <div class="poster-overlay">
                             <h4>Toby</h4>
-                            <p class="poster-role">VFX Compositor</p>
+                            <p>VFX Compositor</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- Duplicate for infinite loop -->
-                <div class="poster-item" data-category="ilm">
-                    <div class="poster-card">
-                        <div class="poster-image" style="background: linear-gradient(135deg, #facc15, #fb923c);">
-                            <i class="fas fa-film"></i>
-                            <span>The Running Man</span>
-                        </div>
-                        <div class="poster-info">
+                    <!-- Duplicate for infinite loop -->
+                    <div class="movie-poster" data-category="ilm">
+                        <img src="https://via.placeholder.com/200x300/facc15/000000?text=The+Running+Man" alt="The Running Man" class="poster-img">
+                        <div class="poster-overlay">
                             <h4>The Running Man</h4>
-                            <p class="poster-role">Roto / Prep Artist</p>
+                            <p>Roto / Prep Artist</p>
+                        </div>
+                    </div>
+                    <div class="movie-poster" data-category="ilm">
+                        <img src="https://via.placeholder.com/200x300/2dd4bf/000000?text=Stranger+Things" alt="Stranger Things" class="poster-img">
+                        <div class="poster-overlay">
+                            <h4>Stranger Things</h4>
+                            <p>Roto / Prep Artist</p>
+                        </div>
+                    </div>
+                    <div class="movie-poster" data-category="ilm">
+                        <img src="https://via.placeholder.com/200x300/a855f7/000000?text=Tron+Ares" alt="Tron: Ares" class="poster-img">
+                        <div class="poster-overlay">
+                            <h4>Tron: Ares</h4>
+                            <p>Roto / Prep Artist</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ilm">ILM</button>
+            <button class="filter-btn" data-filter="dtm">DTM</button>
         </div>
 
         <!-- Detailed Gallery Grid Below -->
@@ -224,9 +201,7 @@
             
             <div class="gallery-card" data-category="ilm">
                 <div class="card-image">
-                    <div class="placeholder-image" style="background: linear-gradient(135deg, #facc15, #fb923c);">
-                        <i class="fas fa-film"></i>
-                    </div>
+                    <img src="https://via.placeholder.com/400x300/facc15/000000?text=The+Running+Man" alt="The Running Man">
                 </div>
                 <div class="card-content">
                     <h3>The Running Man</h3>
@@ -238,9 +213,7 @@
 
             <div class="gallery-card" data-category="ilm">
                 <div class="card-image">
-                    <div class="placeholder-image" style="background: linear-gradient(135deg, #2dd4bf, #3b82f6);">
-                        <i class="fas fa-film"></i>
-                    </div>
+                    <img src="https://via.placeholder.com/400x300/2dd4bf/000000?text=Stranger+Things" alt="Stranger Things">
                 </div>
                 <div class="card-content">
                     <h3>Stranger Things</h3>
@@ -252,9 +225,7 @@
 
             <div class="gallery-card" data-category="ilm">
                 <div class="card-image">
-                    <div class="placeholder-image" style="background: linear-gradient(135deg, #a855f7, #ec4899);">
-                        <i class="fas fa-film"></i>
-                    </div>
+                    <img src="https://via.placeholder.com/400x300/a855f7/000000?text=Tron+Ares" alt="Tron: Ares">
                 </div>
                 <div class="card-content">
                     <h3>Tron: Ares</h3>
@@ -266,9 +237,7 @@
 
             <div class="gallery-card" data-category="dtm">
                 <div class="card-image">
-                    <div class="placeholder-image" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">
-                        <i class="fas fa-film"></i>
-                    </div>
+                    <img src="https://via.placeholder.com/400x300/f59e0b/000000?text=Perilloor+Premier" alt="Perilloor Premier League">
                 </div>
                 <div class="card-content">
                     <h3>Perilloor Premier League</h3>
@@ -280,9 +249,7 @@
 
             <div class="gallery-card" data-category="dtm">
                 <div class="card-image">
-                    <div class="placeholder-image" style="background: linear-gradient(135deg, #06b6d4, #10b981);">
-                        <i class="fas fa-film"></i>
-                    </div>
+                    <img src="https://via.placeholder.com/400x300/06b6d4/000000?text=Kannur+Squad" alt="Kannur Squad">
                 </div>
                 <div class="card-content">
                     <h3>Kannur Squad</h3>
@@ -294,9 +261,7 @@
 
             <div class="gallery-card" data-category="dtm">
                 <div class="card-image">
-                    <div class="placeholder-image" style="background: linear-gradient(135deg, #8b5cf6, #6366f1);">
-                        <i class="fas fa-film"></i>
-                    </div>
+                    <img src="https://via.placeholder.com/400x300/8b5cf6/000000?text=Toby" alt="Toby">
                 </div>
                 <div class="card-content">
                     <h3>Toby</h3>
@@ -476,7 +441,7 @@
         // Gallery Filter Script
         const filterButtons = document.querySelectorAll('.filter-btn');
         const galleryCards = document.querySelectorAll('.gallery-card');
-        const posterItems = document.querySelectorAll('.poster-item');
+        const moviePosters = document.querySelectorAll('.movie-poster');
 
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -485,22 +450,13 @@
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
 
-                // Filter poster carousel
-                posterItems.forEach(item => {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.9)';
-                    
-                    setTimeout(() => {
-                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                            item.style.display = 'block';
-                            setTimeout(() => {
-                                item.style.opacity = '1';
-                                item.style.transform = 'scale(1)';
-                            }, 10);
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    }, 300);
+                // Filter movie posters
+                moviePosters.forEach(poster => {
+                    if (filterValue === 'all' || poster.getAttribute('data-category') === filterValue) {
+                        poster.style.display = 'block';
+                    } else {
+                        poster.style.display = 'none';
+                    }
                 });
 
                 // Filter gallery cards
