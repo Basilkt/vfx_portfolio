@@ -43,11 +43,12 @@
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
+            <a href="#work">Work</a>
             <a href="#experience">Experience</a>
             <a href="#education">Education</a>
         </div>
         <div class="nav-right">
-            <a href="#skills" class="nav-btn">View Work</a>
+            <a href="#work" class="nav-btn">View Work</a>
         </div>
     </nav>
 
@@ -60,8 +61,8 @@
                 </p>
             </div>
             <div class="action-buttons">
-                <a href="#skills" class="main-button primary">
-                    <i class="fas fa-play"></i> My Skills
+                <a href="#work" class="main-button primary">
+                    <i class="fas fa-play"></i> My Work
                 </a>
                 <a href="mailto:bhasimuhammed@gmail.com" class="main-button secondary">
                     <i class="fas fa-envelope"></i> Email
@@ -108,6 +109,203 @@
         <h2 class="section-title">Skills & Software</h2>
         <div class="voronoi-stage" id="voronoiStage">
             <svg id="voronoiSVG"></svg>
+        </div>
+    </section>
+
+    <!-- Work Gallery Section with Movie Posters Carousel -->
+    <section class="work-gallery-section cinematic-scroll" id="work">
+        <h2 class="section-title">Featured Work</h2>
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ilm">ILM</button>
+            <button class="filter-btn" data-filter="dtm">DTM</button>
+        </div>
+        
+        <!-- Animated Poster Carousel -->
+        <div class="posters-carousel-container">
+            <div class="posters-carousel">
+                <div class="poster-item" data-category="ilm">
+                    <div class="poster-card">
+                        <div class="poster-image" style="background: linear-gradient(135deg, #facc15, #fb923c);">
+                            <i class="fas fa-film"></i>
+                            <span>The Running Man</span>
+                        </div>
+                        <div class="poster-info">
+                            <h4>The Running Man</h4>
+                            <p class="poster-role">Roto / Prep Artist</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="poster-item" data-category="ilm">
+                    <div class="poster-card">
+                        <div class="poster-image" style="background: linear-gradient(135deg, #2dd4bf, #3b82f6);">
+                            <i class="fas fa-film"></i>
+                            <span>Stranger Things</span>
+                        </div>
+                        <div class="poster-info">
+                            <h4>Stranger Things</h4>
+                            <p class="poster-role">Roto / Prep Artist</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="poster-item" data-category="ilm">
+                    <div class="poster-card">
+                        <div class="poster-image" style="background: linear-gradient(135deg, #a855f7, #ec4899);">
+                            <i class="fas fa-film"></i>
+                            <span>Tron: Ares</span>
+                        </div>
+                        <div class="poster-info">
+                            <h4>Tron: Ares</h4>
+                            <p class="poster-role">Roto / Prep Artist</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="poster-item" data-category="dtm">
+                    <div class="poster-card">
+                        <div class="poster-image" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">
+                            <i class="fas fa-film"></i>
+                            <span>Perilloor Premier League</span>
+                        </div>
+                        <div class="poster-info">
+                            <h4>Perilloor Premier League</h4>
+                            <p class="poster-role">VFX Compositor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="poster-item" data-category="dtm">
+                    <div class="poster-card">
+                        <div class="poster-image" style="background: linear-gradient(135deg, #06b6d4, #10b981);">
+                            <i class="fas fa-film"></i>
+                            <span>Kannur Squad</span>
+                        </div>
+                        <div class="poster-info">
+                            <h4>Kannur Squad</h4>
+                            <p class="poster-role">VFX Compositor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="poster-item" data-category="dtm">
+                    <div class="poster-card">
+                        <div class="poster-image" style="background: linear-gradient(135deg, #8b5cf6, #6366f1);">
+                            <i class="fas fa-film"></i>
+                            <span>Toby</span>
+                        </div>
+                        <div class="poster-info">
+                            <h4>Toby</h4>
+                            <p class="poster-role">VFX Compositor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicate for infinite loop -->
+                <div class="poster-item" data-category="ilm">
+                    <div class="poster-card">
+                        <div class="poster-image" style="background: linear-gradient(135deg, #facc15, #fb923c);">
+                            <i class="fas fa-film"></i>
+                            <span>The Running Man</span>
+                        </div>
+                        <div class="poster-info">
+                            <h4>The Running Man</h4>
+                            <p class="poster-role">Roto / Prep Artist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Gallery Grid Below -->
+        <div class="gallery-section-title">Project Details</div>
+        <div class="gallery-grid">
+            
+            <div class="gallery-card" data-category="ilm">
+                <div class="card-image">
+                    <div class="placeholder-image" style="background: linear-gradient(135deg, #facc15, #fb923c);">
+                        <i class="fas fa-film"></i>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>The Running Man</h3>
+                    <p class="card-role">Roto / Prep Artist</p>
+                    <p class="card-studio">Industrial Light & Magic (ILM)</p>
+                    <p class="card-desc">High-precision rotoscoping and plate preparation for action sequences with complex motion tracking and edge refinement.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-category="ilm">
+                <div class="card-image">
+                    <div class="placeholder-image" style="background: linear-gradient(135deg, #2dd4bf, #3b82f6);">
+                        <i class="fas fa-film"></i>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Stranger Things</h3>
+                    <p class="card-role">Roto / Prep Artist</p>
+                    <p class="card-studio">Industrial Light & Magic (ILM)</p>
+                    <p class="card-desc">Detailed rotoscoping work for complex scenes, ensuring pixel-perfect masking for downstream VFX integration and compositing.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-category="ilm">
+                <div class="card-image">
+                    <div class="placeholder-image" style="background: linear-gradient(135deg, #a855f7, #ec4899);">
+                        <i class="fas fa-film"></i>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Tron: Ares</h3>
+                    <p class="card-role">Roto / Prep Artist</p>
+                    <p class="card-studio">Industrial Light & Magic (ILM)</p>
+                    <p class="card-desc">Advanced rotoscoping on futuristic action sequences with neon effects, maintaining continuity across complex visual elements.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-category="dtm">
+                <div class="card-image">
+                    <div class="placeholder-image" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">
+                        <i class="fas fa-film"></i>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Perilloor Premier League</h3>
+                    <p class="card-role">VFX Compositor</p>
+                    <p class="card-studio">Digital Turbo Media</p>
+                    <p class="card-desc">Full compositing pipeline including color grading, effects integration, and final output mastering for sports production.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-category="dtm">
+                <div class="card-image">
+                    <div class="placeholder-image" style="background: linear-gradient(135deg, #06b6d4, #10b981);">
+                        <i class="fas fa-film"></i>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Kannur Squad</h3>
+                    <p class="card-role">VFX Compositor</p>
+                    <p class="card-studio">Digital Turbo Media</p>
+                    <p class="card-desc">Complete VFX work including keying, color correction, and effects compositing for action-packed sequences and high-impact visuals.</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-category="dtm">
+                <div class="card-image">
+                    <div class="placeholder-image" style="background: linear-gradient(135deg, #8b5cf6, #6366f1);">
+                        <i class="fas fa-film"></i>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Toby</h3>
+                    <p class="card-role">VFX Compositor</p>
+                    <p class="card-studio">Digital Turbo Media</p>
+                    <p class="card-desc">Comprehensive compositing work with emphasis on character integration, lighting matching, and seamless VFX blending with live action.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -274,6 +472,56 @@
                 }
             }
         };
+
+        // Gallery Filter Script
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryCards = document.querySelectorAll('.gallery-card');
+        const posterItems = document.querySelectorAll('.poster-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filterValue = button.getAttribute('data-filter');
+                
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Filter poster carousel
+                posterItems.forEach(item => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.9)';
+                    
+                    setTimeout(() => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 10);
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    }, 300);
+                });
+
+                // Filter gallery cards
+                galleryCards.forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.9)';
+                    
+                    setTimeout(() => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'scale(1)';
+                            }, 10);
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }, 300);
+                });
+            });
+        });
     </script>
 
     <!-- Voronoi Physics Engine Script -->
