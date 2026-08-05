@@ -44,6 +44,7 @@
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#work">Work</a>
+            <a href="#3d-works">3D Works</a>
             <a href="#experience">Experience</a>
             <a href="#education">Education</a>
         </div>
@@ -80,7 +81,6 @@
         <div class="hero-image">
             <div class="image-wrapper">
                 <div class="image-frame">
-                    <!-- Note: Ensure you save a profile photo to images/profile.jpg inside your project -->
                     <img src="images/profile.jpg" alt="Profile" class="profile-pic">
                 </div>
                 <div class="tech-bubble bubble-1">Nk</div>
@@ -117,12 +117,12 @@
     <section class="work-gallery-section cinematic-scroll" id="work">
         <h2 class="section-title">Featured Work</h2>
         
-        <!-- Movie Posters Looping Gallery -->
+        <!-- Movie Posters Looping Gallery (borderless, fade-edge marquee) -->
         <div class="movie-posters-wrapper">
             <div class="movie-posters-track">
                 <!-- Movie 1 -->
                 <div class="movie-poster" data-category="ilm">
-                    <img src="images/The_Running_Man.jpg" alt="The Running Man" class="poster-img">
+                    <img src="images/posters/running-man.jpg" alt="The Running Man" class="poster-img">
                     <div class="poster-overlay">
                         <h4>The Running Man</h4>
                         <p>Roto / Prep Artist</p>
@@ -130,7 +130,7 @@
                 </div>
                 <!-- Movie 2 -->
                 <div class="movie-poster" data-category="ilm">
-                    <img src="images/stranger_things.jpg" alt="Stranger Things" class="poster-img">
+                    <img src="images/posters/stranger-things.jpg" alt="Stranger Things" class="poster-img">
                     <div class="poster-overlay">
                         <h4>Stranger Things</h4>
                         <p>Roto / Prep Artist</p>
@@ -138,7 +138,7 @@
                 </div>
                 <!-- Movie 3 -->
                 <div class="movie-poster" data-category="ilm">
-                    <img src="images/trone.jpg" alt="Tron: Ares" class="poster-img">
+                    <img src="images/posters/tron-ares.jpg" alt="Tron: Ares" class="poster-img">
                     <div class="poster-overlay">
                         <h4>Tron: Ares</h4>
                         <p>Roto / Prep Artist</p>
@@ -146,7 +146,7 @@
                 </div>
                 <!-- Movie 4 -->
                 <div class="movie-poster" data-category="ilm">
-                    <img src="images/star_war.jpg" alt="The Mandalorian and Grogu" class="poster-img">
+                    <img src="images/posters/mandalorian.jpg" alt="The Mandalorian and Grogu" class="poster-img">
                     <div class="poster-overlay">
                         <h4>Mandalorian & Grogu</h4>
                         <p>Roto / Prep Artist</p>
@@ -154,7 +154,7 @@
                 </div>
                 <!-- Movie 5 -->
                 <div class="movie-poster" data-category="ilm">
-                    <img src="images/moana.jpg" alt="Moana" class="poster-img">
+                    <img src="images/posters/moana.jpg" alt="Moana" class="poster-img">
                     <div class="poster-overlay">
                         <h4>Moana</h4>
                         <p>Roto / Prep Artist</p>
@@ -163,35 +163,35 @@
 
                 <!-- EXACT DUPLICATE FOR SEAMLESS INFINITE LOOPING -->
                 <div class="movie-poster" data-category="ilm">
-                    <img src="images/The_Running_Man.jpg" alt="The Running Man" class="poster-img">
+                    <img src="images/posters/running-man.jpg" alt="The Running Man" class="poster-img">
                     <div class="poster-overlay">
                         <h4>The Running Man</h4>
                         <p>Roto / Prep Artist</p>
                     </div>
                 </div>
                 <div class="movie-poster" data-category="ilm">
-                    <img src="images/stranger_things.jpg" alt="Stranger Things" class="poster-img">
+                    <img src="images/posters/stranger-things.jpg" alt="Stranger Things" class="poster-img">
                     <div class="poster-overlay">
                         <h4>Stranger Things</h4>
                         <p>Roto / Prep Artist</p>
                     </div>
                 </div>
                 <div class="movie-poster" data-category="ilm">
-                    <img src="images/trone.jpg" alt="Tron: Ares" class="poster-img">
+                    <img src="images/posters/tron-ares.jpg" alt="Tron: Ares" class="poster-img">
                     <div class="poster-overlay">
                         <h4>Tron: Ares</h4>
                         <p>Roto / Prep Artist</p>
                     </div>
                 </div>
                 <div class="movie-poster" data-category="ilm">
-                    <img src="images/star_war.jpg" alt="The Mandalorian and Grogu" class="poster-img">
+                    <img src="images/posters/mandalorian.jpg" alt="The Mandalorian and Grogu" class="poster-img">
                     <div class="poster-overlay">
                         <h4>Mandalorian & Grogu</h4>
                         <p>Roto / Prep Artist</p>
                     </div>
                 </div>
                 <div class="movie-poster" data-category="ilm">
-                    <img src="images/moana.jpg" alt="Moana" class="poster-img">
+                    <img src="images/posters/moana.jpg" alt="Moana" class="poster-img">
                     <div class="poster-overlay">
                         <h4>Moana</h4>
                         <p>Roto / Prep Artist</p>
@@ -212,7 +212,7 @@
             
             <div class="gallery-card" data-category="ilm">
                 <div class="card-image">
-                    <img src="images/The_Running_Man.jpg" alt="The Running Man">
+                    <img src="images/posters/running-man.jpg" alt="The Running Man">
                 </div>
                 <div class="card-content">
                     <h3>The Running Man</h3>
@@ -224,7 +224,7 @@
 
             <div class="gallery-card" data-category="ilm">
                 <div class="card-image">
-                    <img src="images/stranger_things.jpg" alt="Stranger Things">
+                    <img src="images/posters/stranger-things.jpg" alt="Stranger Things">
                 </div>
                 <div class="card-content">
                     <h3>Stranger Things</h3>
@@ -236,7 +236,7 @@
 
             <div class="gallery-card" data-category="ilm">
                 <div class="card-image">
-                    <img src="images/trone.jpg" alt="Tron: Ares">
+                    <img src="images/posters/tron-ares.jpg" alt="Tron: Ares">
                 </div>
                 <div class="card-content">
                     <h3>Tron: Ares</h3>
@@ -248,7 +248,7 @@
 
             <div class="gallery-card" data-category="ilm">
                 <div class="card-image">
-                    <img src="images/star_war.jpg" alt="The Mandalorian and Grogu">
+                    <img src="images/posters/mandalorian.jpg" alt="The Mandalorian and Grogu">
                 </div>
                 <div class="card-content">
                     <h3>The Mandalorian & Grogu</h3>
@@ -260,7 +260,7 @@
 
             <div class="gallery-card" data-category="ilm">
                 <div class="card-image">
-                    <img src="images/moana.jpg" alt="Moana Live Action">
+                    <img src="images/posters/moana.jpg" alt="Moana Live Action">
                 </div>
                 <div class="card-content">
                     <h3>Moana (Live Action)</h3>
@@ -308,6 +308,97 @@
 
         </div>
     </section>
+
+    <!-- 3D Works Section -->
+    <section class="threed-works-section cinematic-scroll" id="3d-works">
+        <h2 class="section-title">3D Works</h2>
+
+        <div class="video-marquee-wrapper">
+            <div class="video-marquee-track">
+                <!-- Video 1 -->
+                <div class="video-thumb" data-video="videos/3d-work-1.mp4">
+                    <img src="images/3d-thumbs/thumb-1.jpg" alt="3D Work 1" class="thumb-img">
+                    <div class="play-btn"><i class="fas fa-play"></i></div>
+                    <div class="thumb-overlay">
+                        <h4>Character Rig Breakdown</h4>
+                        <p>3D / Maya</p>
+                    </div>
+                </div>
+                <!-- Video 2 -->
+                <div class="video-thumb" data-video="videos/3d-work-2.mp4">
+                    <img src="images/3d-thumbs/thumb-2.jpg" alt="3D Work 2" class="thumb-img">
+                    <div class="play-btn"><i class="fas fa-play"></i></div>
+                    <div class="thumb-overlay">
+                        <h4>Environment Lighting Study</h4>
+                        <p>3D / Maya</p>
+                    </div>
+                </div>
+                <!-- Video 3 -->
+                <div class="video-thumb" data-video="videos/3d-work-3.mp4">
+                    <img src="images/3d-thumbs/thumb-3.jpg" alt="3D Work 3" class="thumb-img">
+                    <div class="play-btn"><i class="fas fa-play"></i></div>
+                    <div class="thumb-overlay">
+                        <h4>Creature Animation Test</h4>
+                        <p>3D / Maya</p>
+                    </div>
+                </div>
+                <!-- Video 4 -->
+                <div class="video-thumb" data-video="videos/3d-work-4.mp4">
+                    <img src="images/3d-thumbs/thumb-4.jpg" alt="3D Work 4" class="thumb-img">
+                    <div class="play-btn"><i class="fas fa-play"></i></div>
+                    <div class="thumb-overlay">
+                        <h4>Hard Surface Model Turntable</h4>
+                        <p>3D / Maya</p>
+                    </div>
+                </div>
+
+                <!-- EXACT DUPLICATE FOR SEAMLESS INFINITE LOOPING -->
+                <div class="video-thumb" data-video="videos/3d-work-1.mp4">
+                    <img src="images/3d-thumbs/thumb-1.jpg" alt="3D Work 1" class="thumb-img">
+                    <div class="play-btn"><i class="fas fa-play"></i></div>
+                    <div class="thumb-overlay">
+                        <h4>Character Rig Breakdown</h4>
+                        <p>3D / Maya</p>
+                    </div>
+                </div>
+                <div class="video-thumb" data-video="videos/3d-work-2.mp4">
+                    <img src="images/3d-thumbs/thumb-2.jpg" alt="3D Work 2" class="thumb-img">
+                    <div class="play-btn"><i class="fas fa-play"></i></div>
+                    <div class="thumb-overlay">
+                        <h4>Environment Lighting Study</h4>
+                        <p>3D / Maya</p>
+                    </div>
+                </div>
+                <div class="video-thumb" data-video="videos/3d-work-3.mp4">
+                    <img src="images/3d-thumbs/thumb-3.jpg" alt="3D Work 3" class="thumb-img">
+                    <div class="play-btn"><i class="fas fa-play"></i></div>
+                    <div class="thumb-overlay">
+                        <h4>Creature Animation Test</h4>
+                        <p>3D / Maya</p>
+                    </div>
+                </div>
+                <div class="video-thumb" data-video="videos/3d-work-4.mp4">
+                    <img src="images/3d-thumbs/thumb-4.jpg" alt="3D Work 4" class="thumb-img">
+                    <div class="play-btn"><i class="fas fa-play"></i></div>
+                    <div class="thumb-overlay">
+                        <h4>Hard Surface Model Turntable</h4>
+                        <p>3D / Maya</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal / Lightbox -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-backdrop" id="videoModalBackdrop"></div>
+        <div class="video-modal-content">
+            <button class="video-modal-close" id="videoModalClose" aria-label="Close video">
+                <i class="fas fa-times"></i>
+            </button>
+            <video id="videoModalPlayer" controls playsinline></video>
+        </div>
+    </div>
 
     <!-- Experience Section -->
     <section class="experience-section cinematic-scroll" id="experience">
@@ -512,6 +603,42 @@
                     }, 300);
                 });
             });
+        });
+
+        // Video Modal / Lightbox Script
+        const videoModal = document.getElementById('videoModal');
+        const videoModalPlayer = document.getElementById('videoModalPlayer');
+        const videoModalBackdrop = document.getElementById('videoModalBackdrop');
+        const videoModalClose = document.getElementById('videoModalClose');
+        const videoThumbs = document.querySelectorAll('.video-thumb');
+
+        function openVideoModal(src) {
+            videoModalPlayer.src = src;
+            videoModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            videoModalPlayer.play().catch(() => {});
+        }
+
+        function closeVideoModal() {
+            videoModal.classList.remove('active');
+            document.body.style.overflow = '';
+            videoModalPlayer.pause();
+            videoModalPlayer.src = '';
+        }
+
+        videoThumbs.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                const src = thumb.getAttribute('data-video');
+                if (src) openVideoModal(src);
+            });
+        });
+
+        videoModalBackdrop.addEventListener('click', closeVideoModal);
+        videoModalClose.addEventListener('click', closeVideoModal);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+                closeVideoModal();
+            }
         });
     </script>
 
