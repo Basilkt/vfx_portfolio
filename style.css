@@ -1,6 +1,7 @@
 /* --- 1. Global Settings & Scroll Progress --- */
 body {
-    margin: 0; padding: 0;
+    margin: 0; 
+    padding: 0;
     font-family: 'Outfit', sans-serif;
     background-color: #030712; 
     color: #ffffff;
@@ -8,38 +9,68 @@ body {
 }
 
 .scroll-progress-bar {
-    position: fixed; top: 0; left: 0; width: 0%; height: 4px;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 0%; 
+    height: 4px;
     background: linear-gradient(to right, #60a5fa, #a78bfa);
-    z-index: 99999; transition: width 0.1s;
+    z-index: 99999; 
+    transition: width 0.1s;
 }
 
 /* --- 2. Premium Cinematic Background Atmosphere --- */
 .bg-grid {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh;
     background-image: 
         linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-    background-size: 40px 40px; z-index: -4; pointer-events: none;
+    background-size: 40px 40px; 
+    z-index: -4; 
+    pointer-events: none;
 }
 
 .bg-blob {
-    position: fixed; width: 800px; height: 800px;
+    position: fixed; 
+    width: 800px; 
+    height: 800px;
     background: radial-gradient(#2563eb, transparent 60%);
-    opacity: 0.1; border-radius: 50%; z-index: -3;
-    filter: blur(100px); animation: float 25s infinite alternate; pointer-events: none;
+    opacity: 0.1; 
+    border-radius: 50%; 
+    z-index: -3;
+    filter: blur(100px); 
+    animation: float 25s infinite alternate; 
+    pointer-events: none;
 }
 .blob-1 { top: -200px; left: -200px; }
 .blob-2 { bottom: -200px; right: -200px; background: radial-gradient(#8b5cf6, transparent 60%); }
-@keyframes float { 0% { transform: translate(0, 0); } 100% { transform: translate(80px, 80px); } }
+
+@keyframes float { 
+    0% { transform: translate(0, 0); } 
+    100% { transform: translate(80px, 80px); } 
+}
 
 .vfx-bg-particles {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    overflow: hidden; z-index: -2; pointer-events: none;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh;
+    overflow: hidden; 
+    z-index: -2; 
+    pointer-events: none;
 }
 .vfx-logo-particle {
-    position: absolute; bottom: -200px;
-    font-weight: 900; letter-spacing: 2px;
-    text-transform: uppercase; white-space: nowrap;
+    position: absolute; 
+    bottom: -200px;
+    font-weight: 900; 
+    letter-spacing: 2px;
+    text-transform: uppercase; 
+    white-space: nowrap;
     color: transparent; 
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05); 
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.03); 
@@ -69,46 +100,74 @@ body {
 /* --- 3. Centered Navbar --- */
 .top-nav {
     padding: 30px 50px; 
-    position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
-    background: transparent; transition: all 0.4s ease-in-out; box-sizing: border-box;
-    display: flex; justify-content: space-between; align-items: center; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    z-index: 100;
+    background: transparent; 
+    transition: all 0.4s ease-in-out; 
+    box-sizing: border-box;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
 }
 .top-nav.scrolled {
-    padding: 15px 50px; background: rgba(3, 7, 18, 0.9);
-    backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 15px 50px; 
+    background: rgba(3, 7, 18, 0.9);
+    backdrop-filter: blur(10px); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 .nav-left, .nav-right { flex: 1; display: flex; }
 .nav-right { justify-content: flex-end; }
 .nav-links { flex: 2; display: flex; gap: 30px; justify-content: center; align-items: center; flex-wrap: wrap; }
 .nav-links a {
-    color: #e2e8f0; text-decoration: none; font-weight: 500; font-size: 1.05rem;
+    color: #e2e8f0; 
+    text-decoration: none; 
+    font-weight: 500; 
+    font-size: 1.05rem;
     transition: color 0.3s;
 }
 .nav-links a:hover { color: #8b5cf6; } 
 
 .nav-btn {
-    padding: 8px 22px; border: 2px solid #8b5cf6; color: #a78bfa; 
-    border-radius: 30px; text-decoration: none; font-weight: 500; transition: all 0.3s;
+    padding: 8px 22px; 
+    border: 2px solid #8b5cf6; 
+    color: #a78bfa; 
+    border-radius: 30px; 
+    text-decoration: none; 
+    font-weight: 500; 
+    transition: all 0.3s;
 }
 .nav-btn:hover { background: rgba(139, 92, 246, 0.1); transform: scale(1.05); }
 
 /* --- 4. Main Hero Section --- */
 .hero-container {
-    min-height: 100vh; display: flex; align-items: center; justify-content: space-between;
-    max-width: 1200px; margin: 0 auto; padding: 0 50px; gap: 20px;
+    min-height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 50px; 
+    gap: 20px;
 }
 
 .hero-text { flex: 1; text-align: left; z-index: 2; }
 .greeting { font-size: 5rem; font-weight: 800; line-height: 1; margin-bottom: 20px; }
 .name-highlight {
     background: linear-gradient(to right, #60a5fa, #a78bfa);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
 }
 .terminal-box { margin-bottom: 30px; }
 .terminal-line {
-    font-family: 'Courier New', monospace; font-size: 1.3rem;
-    color: #4ade80; margin: 5px 0; font-weight: 600;
+    font-family: 'Courier New', monospace; 
+    font-size: 1.3rem;
+    color: #4ade80; 
+    margin: 5px 0; 
+    font-weight: 600;
 }
 
 .cursor { display: inline-block; width: 3px; background-color: #4ade80; margin-left: 2px; animation: blink 1s infinite; }
@@ -128,18 +187,34 @@ body {
 .hero-image { flex: 1; display: flex; justify-content: center; align-items: center; position: relative; z-index: 5; }
 .image-wrapper { position: relative; width: 400px; height: 400px; }
 .image-frame {
-    width: 350px; height: 350px; border-radius: 50%; overflow: hidden;
-    border: 3px solid rgba(255,255,255,0.1); box-shadow: 0 0 50px rgba(96, 165, 250, 0.2);
-    margin: 25px; position: relative; z-index: 1;
+    width: 350px; 
+    height: 350px; 
+    border-radius: 50%; 
+    overflow: hidden;
+    border: 3px solid rgba(255,255,255,0.1); 
+    box-shadow: 0 0 50px rgba(96, 165, 250, 0.2);
+    margin: 25px; 
+    position: relative; 
+    z-index: 1;
 }
 .profile-pic { width: 100%; height: 100%; object-fit: cover; }
 
 .tech-bubble {
-    position: absolute; width: 55px; height: 55px;
-    background: rgba(20, 20, 25, 0.9); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 0.85rem; backdrop-filter: blur(10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.4); z-index: 2; animation: floatIcon 6s infinite ease-in-out;
+    position: absolute; 
+    width: 55px; 
+    height: 55px;
+    background: rgba(20, 20, 25, 0.9); 
+    border: 1px solid rgba(255,255,255,0.2); 
+    border-radius: 50%;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    font-weight: 700; 
+    font-size: 0.85rem; 
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4); 
+    z-index: 2; 
+    animation: floatIcon 6s infinite ease-in-out;
 }
 
 .bubble-1 { top: -10px; left: 20px; border-color: #facc15; color: #facc15; animation-delay: 0s; }
@@ -162,26 +237,39 @@ body {
 }
 
 .about-wrapper {
-    max-width: 800px; margin: 0 auto;
+    max-width: 800px; 
+    margin: 0 auto;
     background: transparent; 
     padding: 20px 50px; 
-    border: none; box-shadow: none; backdrop-filter: none;
-    display: flex; flex-direction: column; align-items: center; 
+    border: none; 
+    box-shadow: none; 
+    backdrop-filter: none;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
 }
 
 .animated-headline {
-    font-size: 2.5rem; font-weight: 800; letter-spacing: 2px;
-    margin-top: 0; margin-bottom: 25px;
+    font-size: 2.5rem; 
+    font-weight: 800; 
+    letter-spacing: 2px;
+    margin-top: 0; 
+    margin-bottom: 25px;
     background: linear-gradient(90deg, #60a5fa, #a78bfa, #60a5fa);
-    background-size: 200% auto; color: transparent;
-    -webkit-background-clip: text; animation: textShine 3s linear infinite; 
+    background-size: 200% auto; 
+    color: transparent;
+    -webkit-background-clip: text; 
+    animation: textShine 3s linear infinite; 
 }
 
 @keyframes textShine { to { background-position: 200% center; } }
 
 .about-text {
-    font-size: 1.15rem; line-height: 1.8; color: #cbd5e1;
-    margin-bottom: 20px; text-align: center; 
+    font-size: 1.15rem; 
+    line-height: 1.8; 
+    color: #cbd5e1;
+    margin-bottom: 20px; 
+    text-align: center; 
 }
 .about-text:last-child { margin-bottom: 0; }
 
@@ -257,13 +345,11 @@ body {
     z-index: 10;
 }
 
-/* --- MOVIE POSTERS MARQUEE: borderless, fade-edge, seamless infinite loop --- */
 .movie-posters-wrapper {
     width: 100%;
     overflow: hidden;
     margin: 40px 0 60px 0;
     padding: 20px 0;
-    /* Fade-in / fade-out edges via mask, no visible container/border */
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
     mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
@@ -280,12 +366,8 @@ body {
 }
 
 @keyframes scroll-left {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .movie-poster {
@@ -401,7 +483,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 16px;
     overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
     backdrop-filter: blur(5px);
     cursor: pointer;
 }
@@ -497,12 +579,8 @@ body {
 }
 
 @keyframes scroll-left-reverse {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .video-thumb {
@@ -779,21 +857,43 @@ body {
 
 /* --- 12. Splash Screen --- */
 .splash-screen {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-    background-color: #030712; display: flex; justify-content: center; align-items: center;
-    z-index: 9999; animation: bgFadeOut 1s ease-in-out 2.5s forwards; pointer-events: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100vh;
+    background-color: #030712; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    z-index: 9999; 
+    animation: bgFadeOut 1s ease-in-out 2.5s forwards; 
+    pointer-events: none; 
 }
 .splash-content { position: relative; width: 600px; height: 300px; display: flex; justify-content: center; align-items: center; }
 .splash-name {
-    font-size: 3.5rem; font-weight: 800; color: white;
+    font-size: 3.5rem; 
+    font-weight: 800; 
+    color: white;
     background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    opacity: 0; animation: fadeInUp 1s ease-in-out forwards, flyLeft 1s ease-in-out 2.5s forwards;
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    opacity: 0; 
+    animation: fadeInUp 1s ease-in-out forwards, flyLeft 1s ease-in-out 2.5s forwards;
 }
 .splash-bubble {
-    position: absolute; width: 40px; height: 40px;
-    border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); color: white; font-weight: bold; font-size: 0.8rem;
-    display: flex; align-items: center; justify-content: center; opacity: 0;
+    position: absolute; 
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%; 
+    border: 1px solid rgba(255,255,255,0.3); 
+    color: white; 
+    font-weight: bold; 
+    font-size: 0.8rem;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    opacity: 0;
     animation: fadeInUp 1s ease-in-out forwards, orbitPulse 3s infinite ease-in-out, flyRight 1.2s ease-in-out 2.4s forwards;
 }
 
