@@ -665,8 +665,8 @@ body {
 
 .timeline-item {
     position: relative;
-    padding-left: 55px;
-    margin-bottom: 45px;
+    padding-left: 65px;
+    margin-bottom: 55px;
     opacity: 0;
     transform: scale(0.7);
     transform-origin: left center;
@@ -686,9 +686,9 @@ body {
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: 14px;
-    top: 6px;
-    bottom: -45px;
+    left: 15px;
+    top: 8px;
+    bottom: -55px;
     width: 2px;
     background: linear-gradient(to bottom, rgba(139, 92, 246, 0.7), rgba(139, 92, 246, 0.1));
 }
@@ -699,32 +699,27 @@ body {
 
 .timeline-dot {
     position: absolute;
-    left: 5px;
-    top: 28px;
-    width: 20px;
-    height: 20px;
+    left: 4px;
+    top: 6px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     background: #030712;
-    border: 3px solid #8b5cf6;
-    box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
+    border: 3px solid #6d5bf7;
+    box-shadow: 0 0 15px rgba(109, 91, 247, 0.6);
     z-index: 2;
 }
 
 .experience-card {
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-left: 4px solid #8b5cf6;
-    border-radius: 12px;
-    padding: 30px;
+    background: transparent;
+    border: none;
+    padding: 0;
     text-align: left;
-    transition: transform 0.3s, border-color 0.3s;
-    backdrop-filter: blur(5px);
+    transition: transform 0.3s;
 }
 
 .experience-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(139, 92, 246, 0.4);
-    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
+    transform: translateX(6px);
 }
 
 .exp-date {
@@ -1008,18 +1003,19 @@ body {
     }
 
     .timeline-item {
-        padding-left: 40px;
-        margin-bottom: 35px;
+        padding-left: 45px;
+        margin-bottom: 40px;
     }
     .timeline-item::before {
         left: 9px;
-        bottom: -35px;
+        top: 6px;
+        bottom: -40px;
     }
     .timeline-dot {
         left: 0px;
-        width: 18px;
-        height: 18px;
-        top: 24px;
+        width: 20px;
+        height: 20px;
+        top: 4px;
     }
 
     .gallery-grid {
