@@ -466,13 +466,6 @@ body {
     font-weight: 500;
 }
 
-.card-desc {
-    margin: 0;
-    font-size: 0.95rem;
-    color: #cbd5e1;
-    line-height: 1.6;
-}
-
 /* --- 8. 3D WORKS SECTION (video marquee) --- */
 .threed-works-section {
     padding: 60px 20px 100px 20px;
