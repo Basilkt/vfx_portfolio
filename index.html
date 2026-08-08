@@ -415,37 +415,46 @@
     <!-- Experience Section -->
     <section class="experience-section cinematic-scroll" id="experience">
         <h2 class="section-title">Experience</h2>
-        <div class="experience-wrapper">
-            
-            <div class="experience-card">
-                <span class="exp-date">03/2025 – Present</span>
-                <h3>Junior Roto / Paint Artist</h3>
-                <p class="exp-company">Industrial Light & Magic (ILM), Mumbai</p>
-                <ul class="exp-details">
-                    <li>Utilized Machine Learning and AI tools to accelerate roto/paint workflows with high precision</li>
-                    <li>Ensured all outputs met ILM's global benchmarks for edge fidelity and flawless integration</li>
-                </ul>
+        <div class="timeline-wrapper">
+
+            <div class="timeline-item">
+                <span class="timeline-dot"></span>
+                <div class="experience-card">
+                    <span class="exp-date">03/2025 – Present</span>
+                    <h3>Junior Roto / Paint Artist</h3>
+                    <p class="exp-company">Industrial Light & Magic (ILM), Mumbai</p>
+                    <ul class="exp-details">
+                        <li>Utilized Machine Learning and AI tools to accelerate roto/paint workflows with high precision</li>
+                        <li>Ensured all outputs met ILM's global benchmarks for edge fidelity and flawless integration</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="experience-card">
-                <span class="exp-date">03/2024 – 03/2025</span>
-                <h3>Graduate Artist</h3>
-                <p class="exp-company">Jedi Academy (ILM), Mumbai</p>
-                <ul class="exp-details">
-                    <li>Accelerated through intensive training in the ILM global pipeline, mastering proprietary tools and workflows</li>
-                    <li>Assisted lead artists on high-profile VFX sequences, ensuring clean plates and accurate masks for downstream compositing</li>
-                </ul>
+            <div class="timeline-item">
+                <span class="timeline-dot"></span>
+                <div class="experience-card">
+                    <span class="exp-date">03/2024 – 03/2025</span>
+                    <h3>Graduate Artist</h3>
+                    <p class="exp-company">Jedi Academy (ILM), Mumbai</p>
+                    <ul class="exp-details">
+                        <li>Accelerated through intensive training in the ILM global pipeline, mastering proprietary tools and workflows</li>
+                        <li>Assisted lead artists on high-profile VFX sequences, ensuring clean plates and accurate masks for downstream compositing</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="experience-card">
-                <span class="exp-date">05/2023 – 11/2023</span>
-                <h3>VFX Compositor Intern</h3>
-                <p class="exp-company">Digital Turbo Media, Ernakulam, Kerala</p>
-                <ul class="exp-details">
-                    <li>Executed Roto, Paint/Prep, and Matchmove for Malayalam, Tamil, and Hindi feature films</li>
-                    <li>Integrated 2D/3D elements using Nuke and After Effects with precise keying and color matching</li>
-                    <li>Created digital matte paintings and clean plates in Photoshop for rig removals and extensions</li>
-                </ul>
+            <div class="timeline-item">
+                <span class="timeline-dot"></span>
+                <div class="experience-card">
+                    <span class="exp-date">05/2023 – 11/2023</span>
+                    <h3>VFX Compositor Intern</h3>
+                    <p class="exp-company">Digital Turbo Media, Ernakulam, Kerala</p>
+                    <ul class="exp-details">
+                        <li>Executed Roto, Paint/Prep, and Matchmove for Malayalam, Tamil, and Hindi feature films</li>
+                        <li>Integrated 2D/3D elements using Nuke and After Effects with precise keying and color matching</li>
+                        <li>Created digital matte paintings and clean plates in Photoshop for rig removals and extensions</li>
+                    </ul>
+                </div>
             </div>
 
         </div>
@@ -512,6 +521,18 @@
         }, { threshold: 0.15 });
 
         document.querySelectorAll('.cinematic-scroll').forEach(el => scrollObserver.observe(el));
+
+        // Timeline item scale-up-in animation (Experience section)
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    timelineObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.25 });
+
+        document.querySelectorAll('.timeline-item').forEach(el => timelineObserver.observe(el));
 
         const typedTextSpan = document.querySelector(".typed-text");
         const cursorSpan = document.querySelector(".cursor");
