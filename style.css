@@ -185,6 +185,22 @@ body {
 }
 .about-text:last-child { margin-bottom: 0; }
 
+.about-tagline {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    width: 100%;
+    max-width: 500px;
+}
+
+.about-tagline p {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #a78bfa;
+    margin: 6px 0;
+    text-align: center;
+}
+
 /* --- 6. Dynamic Voronoi Physics Engine Stage --- */
 .skills-tunnel-section {
     padding: 100px 0px 150px 0px;
@@ -381,7 +397,7 @@ body {
     box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
 }
 
-/* --- ACCORDION PANEL --- */
+/* --- ACCORDION PANEL (slide down / slide up) --- */
 .accordion-panel {
     max-height: 0;
     overflow: hidden;
@@ -396,7 +412,7 @@ body {
     padding-top: 40px;
 }
 
-/* --- DETAILED GALLERY GRID --- */
+/* --- DETAILED GALLERY GRID (inside accordion panels) --- */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -461,13 +477,20 @@ body {
 }
 
 .card-studio {
-    margin: 0;
+    margin: 0 0 15px 0;
     font-size: 0.85rem;
     color: #94a3b8;
     font-weight: 500;
 }
 
-/* --- 8. 3D WORKS SECTION --- */
+.card-desc {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+/* --- 8. 3D WORKS SECTION (video marquee) --- */
 .threed-works-section {
     padding: 60px 20px 100px 20px;
     max-width: 1200px;
@@ -641,8 +664,8 @@ body {
     background: rgba(139, 92, 246, 0.6);
 }
 
-/* --- TIMELINE STYLES (Used for Experience & Education) --- */
-.experience-section, .education-section {
+/* --- 9. EXPERIENCE SECTION --- */
+.experience-section {
     padding: 100px 20px;
     max-width: 800px;
     margin: 0 auto;
@@ -650,10 +673,10 @@ body {
     z-index: 10;
 }
 
+/* --- Timeline layout: connecting vertical line + dots --- */
 .timeline-wrapper {
     position: relative;
     margin-top: 50px;
-    display: block; /* Ensures structural integrity */
 }
 
 .timeline-item {
@@ -703,8 +726,7 @@ body {
     z-index: 2;
 }
 
-/* Card classes inside the timeline */
-.experience-card, .education-card {
+.experience-card {
     background: transparent;
     border: none;
     padding: 0;
@@ -712,30 +734,30 @@ body {
     transition: transform 0.3s;
 }
 
-.experience-card:hover, .education-card:hover {
+.experience-card:hover {
     transform: translateX(6px);
 }
 
-.exp-date, .edu-date {
+.exp-date {
     font-size: 0.9rem;
     color: #a78bfa;
     font-weight: 600;
 }
 
-.experience-card h3, .education-card h3 {
+.experience-card h3 {
     margin: 10px 0 5px 0;
     font-size: 1.4rem;
     color: #ffffff;
 }
 
-.exp-company, .edu-institution {
+.exp-company {
     color: #94a3b8;
     font-size: 1rem;
     margin-bottom: 15px;
     font-weight: 500;
 }
 
-.exp-details, .edu-details {
+.exp-details {
     color: #cbd5e1;
     font-size: 0.95rem;
     line-height: 1.8;
@@ -744,15 +766,67 @@ body {
     list-style: disc;
 }
 
-.exp-details li, .edu-details li {
+.exp-details li {
     margin-bottom: 10px;
 }
 
-/* Remove list styling for education details since they are paragraphs, not lists */
-p.edu-details {
-    padding-left: 0;
-    list-style: none;
+/* --- 10. EDUCATION SECTION --- */
+.education-section {
+    padding: 100px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+.education-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.education-card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 4px solid #8b5cf6;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: left;
+    transition: transform 0.3s, border-color 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
+}
+
+.edu-date {
+    font-size: 0.9rem;
+    color: #a78bfa;
+    font-weight: 600;
+}
+
+.education-card h3 {
+    margin: 10px 0 5px 0;
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+
+.edu-institution {
+    color: #94a3b8;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.edu-details {
+    color: #cbd5e1;
+    font-size: 0.95rem;
     line-height: 1.6;
+    margin: 0;
 }
 
 /* --- 11. Footer Section --- */
@@ -919,7 +993,7 @@ p.edu-details {
     }
 
     .voronoi-stage {
-        height: 400px;
+        height: 620px;
     }
 
     .movie-posters-wrapper {
@@ -1004,6 +1078,10 @@ p.edu-details {
         width: 100%;
         justify-content: center;
         box-sizing: border-box;
+    }
+
+    .experience-card, .education-card {
+        padding: 20px;
     }
 
     .experience-card h3, .education-card h3 {
